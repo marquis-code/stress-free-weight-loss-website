@@ -94,7 +94,7 @@
     <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
       <div class="lg:pr-8 lg:pt-4">
         <div class="lg:max-w-lg">
-          <!-- <h2 class="text-base/7 font-semibold text-indigo-600">Deploy faster</h2> -->
+         
           <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Discover Personalized Nutrition Plans for Your Unique Needs</p>
           <p class="mt-6 text-lg/8 text-gray-600">Our nutrition experts design tailored meal plans to help you achieve your weight loss goals while meeting your individual needs.</p>
           <dl class="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
@@ -129,7 +129,7 @@
     <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
       <div class="lg:ml-auto lg:pl-4 lg:pt-4">
         <div class="lg:max-w-lg">
-          <!-- <h2 class="text-base/7 font-semibold text-indigo-600">Deploy faster</h2> -->
+          
           <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Customized Fitness Programs for Optimal Results</p>
           <p class="mt-6 text-lg/8 text-gray-600">Our fitness programs are designed to help you achieve your weight loss goals with personalized exercise routines. Whether you're a beginner or an experienced fitness enthusiast, our certified trainers will create a plan tailored to your needs and preferences.</p>
           <dl class="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
@@ -177,7 +177,7 @@
     <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
       <div class="lg:pr-8 lg:pt-4">
         <div class="lg:max-w-lg">
-          <!-- <h2 class="text-base/7 font-semibold text-indigo-600">Deploy faster</h2> -->
+         
           <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Track Your Progress and Stay Connected with Our Mobile Apps
 
 </p>
