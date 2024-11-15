@@ -62,7 +62,10 @@ export default defineNuxtConfig({
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
       },
     ],
-  }
+  },
+  dir: {
+    static: 'public', // Ensure the public folder is treated as static
+  },
   // modules: [
   //   '@nuxtjs/pwa'
   // ],
