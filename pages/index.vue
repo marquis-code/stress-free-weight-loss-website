@@ -6,7 +6,7 @@
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">Your Company</span>
-          <img class="h-20 w-full" src="@/assets/logo.png" alt="">
+          <img class="h-20 w-auto" src="@/assets/logo.png" alt="">
         </a>
       </div>
       <div class="flex lg:hidden">
@@ -18,13 +18,13 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm/6 font-semibold text-gray-900">Product</a>
-        <a href="#" class="text-sm/6 font-semibold text-gray-900">Features</a>
-        <a href="#" class="text-sm/6 font-semibold text-gray-900">Marketplace</a>
-        <a href="#" class="text-sm/6 font-semibold text-gray-900">Company</a>
+        <NuxtLink href="#coaching-plans" class="text-sm/6 font-semibold text-gray-900">Coaching</NuxtLink>
+        <NuxtLink href="#features" class="text-sm/6 font-semibold text-gray-900">Features</NuxtLink>
+        <NuxtLink href="#services" class="text-sm/6 font-semibold text-gray-900">Services</NuxtLink>
+        <NuxtLink href="#testimonials" class="text-sm/6 font-semibold text-gray-900">Testimonials</NuxtLink>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" class="text-sm/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+        <NuxtLink href="#contact-form" class="text-sm/6 font-semibold text-gray-900">Contact Us <span aria-hidden="true">&rarr;</span></NuxtLink>
       </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
@@ -47,13 +47,13 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Product</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
+              <NuxtLink  @click="isOpen = false" href="#coaching-plans" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Coaching</NuxtLink>
+              <NuxtLink @click="isOpen = false" href="#features" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</NuxtLink>
+              <NuxtLink @click="isOpen = false" href="#services" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Services</NuxtLink>
+              <NuxtLink @click="isOpen = false" href="#testimonials" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Testimonials</NuxtLink>
             </div>
             <div class="py-6">
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
+              <NuxtLink @click="isOpen = false" href="#contact-form" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Contact Us</NuxtLink>
             </div>
           </div>
         </div>
@@ -68,15 +68,15 @@
     <div class="py-24 sm:py-32 lg:pb-40">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl text-center">
-          <h1 class="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">Lose Weight Stress-Free with SWL Coaching
+          <h1 data-aos="fade-up" class="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">Lose Weight Stress-Free with SWL Coaching
           </h1>
-          <p class="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">Discover a stress-free and healthy approach to weight loss with our personalized coaching program. Achieve your weight loss goals and maintain a healthy lifestyle for life.</p>
+          <p data-aos="fade-up" class="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">Discover a stress-free and healthy approach to weight loss with our personalized coaching program. Achieve your weight loss goals and maintain a healthy lifestyle for life.</p>
           <div class="mt-10 flex items-center justify-center gap-x-6">
             <a href="#coaching-options" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
             <!-- <a href="#" class="text-sm/6 font-semibold text-gray-900">Sign up<span aria-hidden="true">→</span></a> -->
           </div>
         </div>
-        <div class="mt-16 flow-root sm:mt-24">
+        <div data-aos="fade-up" class="mt-16 flow-root sm:mt-24">
           <div class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
             <div class="rounded-md shadow-2xl ring-1 ring-gray-900/10">
             <video
@@ -97,20 +97,20 @@
         </div>
       </div>
     </div>
-    <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+    <div data-aos="fade-up" class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
       <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
     </div>
   </div>
 </div>
 
-<QuestionBubbles />
+<QuestionBubbles data-aos="fade-up" />
 
- <DesignedHero  />
+ <DesignedHero data-aos="fade-up" id="services" />
 
 
-<PaymentOption id="coaching-options" />
+<PaymentOption data-aos="fade-up" id="coaching-options" />
 
-<div class="bg-gray-900">
+<div data-aos="fade-up" id="features" class="bg-gray-900">
   <div class="mx-auto max-w-7xl px-6 lg:max-w-7xl lg:px-8">
     <!-- <h2 class="text-base/7 font-semibold text-indigo-400">Deploy faster</h2> -->
     <p class="max-w-xl text-pretty text-4xl mb-10 font-semibold tracking-tight text-white sm:text-5xl">What we offer at Stress Free Weight Loss with Dr Ada</p>
@@ -121,13 +121,13 @@
   </div>
 </div>
 
-<FrequentlyAskedQuestions />
+<FrequentlyAskedQuestions data-aos="fade-up" />
 
 
-<TestTestimonials />
-<ContactSection id="contact-form"/>
+<TestTestimonials data-aos="fade-up" id="testimonials" />
+<ContactSection data-aos="fade-up" id="contact-form"/>
 
-<div class="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
+<div data-aos="fade-up" class="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
       <!-- Left: Newsletter Heading and Form -->
@@ -265,7 +265,7 @@
   </div>
 </div> -->
 
-<footer class="bg-gray-900">
+<footer data-aos="fade-up" class="bg-gray-900">
   <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
     <div class="mx-auto max-w-2xl text-center">
       <h2 class="text-base/7 font-semibold text-indigo-400">Join Us</h2>
@@ -368,7 +368,7 @@
           </svg>
         </a>
       </div>
-      <p class="mt-8 text-sm/6 text-gray-400 md:order-1 md:mt-0">&copy; 2024 Your Company, Inc. All rights reserved.</p>
+      <p class="mt-8 text-sm/6 text-gray-400 md:order-1 md:mt-0">&copy; 2024 stress free weight loss with Dr Ada, Inc. All rights reserved.</p>
     </div>
   </div>
 </footer>

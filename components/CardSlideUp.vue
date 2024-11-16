@@ -5,7 +5,7 @@
   <div class="absolute w-full h-full shadow-2xl opacity-20 transform duration-500 inset-y-full group-hover:-inset-y-0"></div>
   <div class="absolute bg-gradient-to-t from-black w-full h-full transform duration-500 inset-y-3/4 group-hover:-inset-y-0">
     <div class="absolute w-full flex place-content-center">
-      <p class="capitalize font-serif font-bold text-3xl text-center shadow-2xl text-white mt-10">Personalized Meal Plans</p>
+      <p class="capitalize font-serif font-bold text-2xl text-center shadow-2xl text-white mt-10">Personalized Meal Plans</p>
     </div>
     <div class="absolute w-full flex place-content-center top-32">
       <p class="font-sans text-center w-4/5 leading-snug text-lg text-white">Discover meal plans crafted just for you! Our certified nutritionists design delicious, stress-free recipes that fit your goals, lifestyle, and preferences. Achieve your weight loss journey without sacrificing flavor.
@@ -23,7 +23,7 @@
   <div class="absolute w-full h-full shadow-2xl opacity-20 transform duration-500 inset-y-full group-hover:-inset-y-0"></div>
   <div class="absolute bg-gradient-to-t from-black w-full h-full transform duration-500 inset-y-3/4 group-hover:-inset-y-0">
     <div class="absolute w-full flex place-content-center">
-      <p class="capitalize font-serif font-bold text-3xl text-center shadow-2xl text-white mt-10">24/7 Support and Guidance</p>
+      <p class="capitalize font-serif font-bold text-2xl text-center shadow-2xl text-white mt-10">24/7 Support and Guidance</p>
     </div>
     <div class="absolute w-full flex place-content-center top-32">
       <p class="font-sans text-center w-4/5 leading-snug text-lg text-white mt-5">Stay motivated with round-the-clock support from our experts. Get real-time tips, answers to your questions, and personalized strategies to keep you on track.
@@ -42,7 +42,7 @@
   <div class="absolute w-full h-full shadow-2xl opacity-20 transform duration-500 inset-y-full group-hover:-inset-y-0"></div>
   <div class="absolute bg-gradient-to-t from-black w-full h-full transform duration-500 inset-y-3/4 group-hover:-inset-y-0">
     <div class="absolute w-full flex place-content-center">
-      <p class="capitalize font-serif font-bold text-3xl text-center shadow-2xl text-white mt-10">Fitness Workouts That Fit Your Schedule</p>
+      <p class="capitalize font-serif font-bold text-2xl text-center shadow-2xl text-white mt-10">Fitness Workouts That Fit Your Schedule</p>
     </div>
     <div class="absolute w-full flex place-content-center top-32">
       <p class="font-sans text-center w-4/5 leading-snug text-lg text-white mt-5">Enjoy flexible workout plans you can do anywhere, anytime. Our simple yet effective routines help you burn calories and tone up without disrupting your daily routine.</p>
@@ -59,7 +59,7 @@
   <div class="absolute w-full h-full shadow-2xl opacity-20 transform duration-500 inset-y-full group-hover:-inset-y-0"></div>
   <div class="absolute bg-gradient-to-t from-black w-full h-full transform duration-500 inset-y-3/4 group-hover:-inset-y-0">
     <div class="absolute w-full flex place-content-center">
-      <p class="capitalize font-serif font-bold text-3xl text-center shadow-2xl text-white mt-10">Progress Tracking Made Easy</p>
+      <p class="capitalize font-serif font-bold text-2xl text-center shadow-2xl text-white mt-10">Progress Tracking Made Easy</p>
     </div>
     <div class="absolute w-full flex place-content-center top-32">
       <p class="font-sans text-center w-4/5 leading-snug text-lg text-white mt-5">Track your journey with our easy-to-use tools. Monitor your weight, calories, and milestones in one place while celebrating every win along the way.</p>

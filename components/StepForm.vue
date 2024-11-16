@@ -1,6 +1,6 @@
 <template>
     <div class="min-h-screen bg-gradient-to-br from-blue-900 to-blue-800 text-white flex items-center justify-center">
-      <div class="relative w-full max-w-2xl p-6 m-1 bg-white rounded-lg shadow-lg text-gray-900">
+      <div class="relative w-full max-w-2xl p-6 m-2 bg-white rounded-lg shadow-lg text-gray-900">
 
         <div class="mb-8">
           <div class="flex items-center justify-between mb-2">
@@ -130,7 +130,7 @@
 
 
       <div
-        v-if="showModal"
+        v-if="showSuccessModal"
         class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
       >
         <div class="bg-white p-8 py-20 rounded-lg shadow-lg text-center">
@@ -146,7 +146,7 @@
           </p>
      <div class="pt-6">
         <button
-            @click="showPaymentModal = true;"
+            @click="handlePaymentModal"
             class="mt-6 px-4 py-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-400"
           >
             Proceed to Payment
@@ -157,46 +157,38 @@
   
 
       <div
-        v-if="showPaymentModal"
-        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
-      >
-        <div class="bg-white p-8 rounded-lg shadow-lg ">
-          <h3 class="text-xl font-semibold text-gray-900">
-            💳 Payment Information
-          </h3>
-          <p class="mt-4 text-gray-600 max-w-md">
-            You are qualified for our stress-free weight loss program. Please make a payment to proceed.
-          </p>
+  v-if="showPaymentModal"
+  class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center px-4"
+>
+  <div class="bg-white rounded-lg shadow-lg max-w-md w-full">
+    <h3 class="text-xl font-semibold text-gray-900 pt-5 px-8">
+      💳 Payment Information
+    </h3>
+    <p class="mt-4 text-gray-600 pb-5  px-8">
+      You are qualified for our stress-free weight loss program. Please make a payment to proceed.
+    </p>
 
-         <div class="">
-          <PaymentCard class="" />
-         </div>
-          <!-- <div class="mt-6 text-left">
-            <p class="text-lg font-medium">Account Details:</p>
-            <ul class="mt-2 space-y-3 text-gray-700">
-              <li><strong>Account Name:</strong> Stress-Free Weight Loss</li>
-              <li><strong>Bank:</strong> United Bank Of Africa (UBA)</li>
-              <li><strong>Account Number:</strong> 1234567890</li>
-              <li><strong>Amount:</strong> $50</li>
-            </ul>
-          </div> -->
-          <div class="mt-6 w-full flex justify-center gap-4 pt-6">
-            <button
-              @click="confirmPayment"
-              class="px-4 w-full py-4 bg-green-500 text-white rounded-lg hover:bg-green-400"
-            >
-              I Have Paid
-            </button>
-            <button
-              @click="closePaymentModal"
-              class="px-4 w-full py-4 bg-gray-300 text-gray-900 rounded-lg"
-            >
-              Cancel
-            </button>
-          </div>
-           <!-- <PaymentCard /> -->
-        </div>
-      </div>
+    <div class="px-3">
+      <PaymentCard />
+    </div>
+
+    <div class="mt-6 w-full flex pt-8 justify-center gap-4 px-8 pb-8">
+      <button
+        @click="confirmPayment"
+        class="px-4 w-full py-4 bg-green-900 text-white rounded-lg hover:bg-green-900"
+      >
+        I Have Paid
+      </button>
+      <button
+        @click="closePaymentModal"
+        class="px-4 w-full py-4 bg-gray-300 text-gray-900 rounded-lg"
+      >
+        Do this later
+      </button>
+    </div>
+  </div>
+</div>
+
 
       
     </div>
@@ -206,17 +198,23 @@
   import { ref, computed } from "vue";
   import { useCustomToast } from '@/composables/core/useCustomToast'
 const { showToast } = useCustomToast();
+const router = useRouter()
   
   // State
   const currentStep = ref(1);
   const showPaymentModal = ref(false);
-  const showModal = ref(false);
+  const showSuccessModal = ref(false);
   const formData = ref({
     goal: "",
     activityLevel: "",
     weightLossGoal: "",
     mealPlan: "",
   });
+
+  const handlePaymentModal = () => {
+    showSuccessModal.value = false
+    showPaymentModal.value = true
+  }
   
   // Progress Calculation
   const progressPercentage = computed(() => (currentStep.value / 4) * 100);
@@ -293,7 +291,7 @@ const { showToast } = useCustomToast();
     if (currentStep.value < 4) {
       currentStep.value++;
     } else {
-        showModal.value = true;
+        showSuccessModal.value = true;
     }
   };
   const prevStep = () => {
@@ -303,15 +301,33 @@ const { showToast } = useCustomToast();
   };
   
   // Payment Modal Actions
+  // const confirmPayment = () => {
+  //   window.open(
+  //     `https://wa.me/2347030338088?text=Hello,%20I%20have%20completed%20my%20payment.%20Please%20confirm.%20Thank%20you!`,
+  //     "_blank"
+  //   );
+  // };
+
   const confirmPayment = () => {
-    window.open(
-      `https://wa.me/2348147626503?text=Hello,%20I%20have%20completed%20my%20payment.%20Please%20confirm.%20Thank%20you!`,
-      "_blank"
-    );
-  };
+  const { goal, activityLevel, weightLossGoal, mealPlan } = formData.value;
+
+  // Build the WhatsApp message text dynamically
+  const message = `Hello,%20I%20have%20completed%20my%20payment.%20Please%20confirm.%20Here%20are%20my%20details:%0A%0A` +
+    `Goal:%20${encodeURIComponent(goal)}%0A` +
+    `Activity%20Level:%20${encodeURIComponent(activityLevel)}%0A` +
+    `Weight%20Loss%20Goal:%20${encodeURIComponent(weightLossGoal)}%0A` +
+    `Meal%20Plan:%20${encodeURIComponent(mealPlan)}%0A%0A` +
+    `Thank%20you!`;
+
+  window.open(
+    `https://wa.me/2347030338088?text=${message}`,
+    "_blank"
+  );
+};
   
   const closePaymentModal = () => {
     showPaymentModal.value = false;
+    router.push('/')
   };
   </script>
   

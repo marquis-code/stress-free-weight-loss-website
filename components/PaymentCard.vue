@@ -1,7 +1,7 @@
 <template>
     <!-- component -->
-<div class="flex flex-col items-start justify-start flex-auto pt-6 flex-shrink-0">
-  <div class="relative h-56 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg w-96 overflow-hidden">
+<div class="flex flex-col items-start justify-start flex-auto flex-shrink-0">
+  <div class="relative h-56 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg w-full overflow-hidden">
     <svg viewBox="0 0 220 192" width="220" height="192" fill="none" class="absolute -left-10 -top-16 text-blue-900 opacity-50">
       <defs>
         <pattern id="837c3e70-6c3a-44e6-8854-cc48c737b659" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -12,7 +12,7 @@
     </svg>
 
     <p class="absolute right-3 top-5">
-      <img src="@/assets/wema-logo1.jpeg" alt="" class="h-10 w-full" />
+      <img src="@/assets/wema-logo1.jpeg" alt="" class="h-10 w-auto" />
     </p>
     <svg viewBox="0 0 220 192" width="220" height="192" fill="none" class="absolute -right-20 -bottom-32 text-blue-900 opacity-50">
       <defs>
@@ -33,7 +33,7 @@
       <span class="flex block gap-x-2">023 7858 301 <svg class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></span>
     </div> -->
     <div class="absolute bottom-20 left-8 text-white font-semibold text-2xl space-x-1.5">
-    <span class="flex block gap-x-2">
+    <span class="flex block gap-x-2 text-xl">
       {{ accountNumber }}
       <svg
         class="cursor-pointer"
@@ -74,9 +74,9 @@ const { copyToClipboard } = useClipboard();
 const copyPhoneNumber = () => {
   copyToClipboard(accountNumber.value).then(() => {
     showToast({
-            title: "Error",
+            title: "Success",
             message: 'Account Number copied successfully',
-            toastType: "error",
+            toastType: "success",
             duration: 3000
           });
   });

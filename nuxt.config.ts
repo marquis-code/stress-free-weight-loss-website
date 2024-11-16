@@ -10,77 +10,60 @@ export default defineNuxtConfig({
     },
   },
   plugins: ["~/plugins/aos.client.ts"],
-  modules: ['@kevinmarrec/nuxt-pwa'],
+  modules: ["@vite-pwa/nuxt"],
   pwa: {
-    workbox: {
-      enabled: true
-    },
-    meta: {
-      title: "Buildr",
-      author: "Marquis",
-      mobileAppIOS: false,
-      mobileApp: true,
+    registerType: "autoUpdate",
+    manifest: {
+      name: "SWL - Stress Free Weight Loss",
+      short_name: "SWL",
       description:
-        "specialize in software development, product design, and bespoke solutions to help businesses innovate and thrive in the digital age.",
+        "Discover a stress-free and healthy approach to weight loss with our personalized coaching program. Achieve your weight loss goals and maintain a healthy lifestyle for life.",
       theme_color: "#27396B",
       background_color: "#27396B",
       display: "standalone",
       start_url: "/",
-      nativeUI: true,
+      icons: [
+        {
+          src: "/logo.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          src: "/logo.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
+      ],
     },
-    icon: {
-      sizes: [64, 120, 144, 152, 192, 384, 512],
+    workbox: {
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+          handler: "CacheFirst",
+          options: {
+            cacheName: "google-fonts-stylesheets",
+            expiration: {
+              maxEntries: 20,
+              maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+            },
+          },
+        },
+        {
+          urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+          handler: "CacheFirst",
+          options: {
+            cacheName: "google-fonts-webfonts",
+            expiration: {
+              maxEntries: 20,
+              maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+            },
+          },
+        },
+      ],
     },
-    manifest: {
-      name: "Achilles Drill",
-      lang: "fa",
-      useWebmanifestExtension: false,
-    },
-    runtimeCaching: [
-      {
-        urlPattern: "https://fonts.googleapis.com/.*",
-        handler: "cacheFirst",
-        method: "GET",
-        strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
-      },
-      {
-        urlPattern: "https://fonts.gstatic.com/.*",
-        handler: "cacheFirst",
-        method: "GET",
-        strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
-      },
-      {
-        urlPattern: "https://cdn.snipcart.com/.*",
-        method: "GET",
-        strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
-      },
-      {
-        urlPattern:
-          "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js",
-        handler: "cacheFirst",
-        method: "GET",
-        strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
-      },
-    ],
   },
   dir: {
     static: 'public', // Ensure the public folder is treated as static
   },
-  // modules: [
-  //   '@nuxtjs/pwa'
-  // ],
-  // pwa: {
-  //   manifest: {
-  //     name: 'My Awesome Nuxt 3 PWA',
-  //     short_name: 'Nuxt3PWA',
-  //     lang: 'en',
-  //     useWebmanifestExtension: false,
-  //     display: 'standalone',
-  //     theme_color: '#4DBA87',
-  //     background_color: '#000000'
-  //   },
-  //   workbox: {
-  //     // Workbox options for customizing the service worker
-  //   }
-  // }
+
 });
