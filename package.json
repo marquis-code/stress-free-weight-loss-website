@@ -9,7 +9,8 @@
     "build": "nuxt build",
     "start": "node .output/server/index.mjs",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "generate-pwa-assets": "npx pwa-asset-generator static/logo.svg public/icons --manifest public/manifest.json --index public/index.html"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.15",
@@ -23,6 +24,7 @@
     "@vite-pwa/nuxt": "^0.10.6",
     "aos": "^3.0.0-beta.6",
     "gsap": "^3.12.5",
+    "pwa-asset-generator": "^6.4.0",
     "vue3-toastify": "^0.2.1"
   },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"

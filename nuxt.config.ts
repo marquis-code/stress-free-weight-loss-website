@@ -31,6 +31,7 @@ export default defineNuxtConfig({
   },
   modules: ["@vite-pwa/nuxt", '@nuxtjs/google-fonts'],
   pwa: {
+    ...require('./public/manifest.json'),
     registerType: "autoUpdate",
     manifest: {
       name: "SWL - Stress Free Weight Loss",
@@ -43,15 +44,29 @@ export default defineNuxtConfig({
       start_url: "/",
       icons: [
         {
-          src: "/logo.png",
-          sizes: "192x192",
-          type: "image/png",
+          "src": "public/icons/manifest-icon-192.maskable.png",
+          "sizes": "192x192",
+          "type": "image/png",
+          "purpose": "any"
         },
         {
-          src: "/logo.png",
-          sizes: "512x512",
-          type: "image/png",
+          "src": "public/icons/manifest-icon-192.maskable.png",
+          "sizes": "192x192",
+          "type": "image/png",
+          "purpose": "maskable"
         },
+        {
+          "src": "public/icons/manifest-icon-512.maskable.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "any"
+        },
+        {
+          "src": "public/icons/manifest-icon-512.maskable.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "maskable"
+        }
       ],
     },
     workbox: {
@@ -79,6 +94,15 @@ export default defineNuxtConfig({
           },
         },
       ],
+    },
+    icon: {
+      iosSizes: []
+    },
+    meta: {
+      theme_color: '#000000',
+      appleStatusBarStyle: 'black-translucent', // iOS-specific settings
+      mobileApp: true,
+      mobileAppIOS: true
     },
   },
   dir: {
