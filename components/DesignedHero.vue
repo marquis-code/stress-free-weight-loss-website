@@ -73,7 +73,7 @@
             </div>
           </li>
         </ul>
-        <div class="mt-4">
+        <div class="my-6">
       <a
         class="group relative inline-block focus:outline-none focus:ring"
         href="#coaching-options"
@@ -85,7 +85,7 @@
         <span
           class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest"
         >
-          Apply now > 
+          Apply now 
         </span>
       </a>
     </div>
