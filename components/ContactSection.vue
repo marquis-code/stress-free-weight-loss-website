@@ -323,7 +323,7 @@
             <section class="max-w-2xl px-3 py-6 mx-auto">
                 <main class="mt-8 space-y-6">
                     <img class="object-cover w-full h-56 rounded-lg md:h-72"
-                        src="@/assets/img/weight9.jpg"
+                        src="@/assets/weight9.jpg"
                         alt="">
 
                     <h2 class="mt-6 text-gray-800 font-semibold text-lg">Hello {{
