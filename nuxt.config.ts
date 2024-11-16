@@ -9,8 +9,27 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+
+  app: {
+    head: {
+      title: "SWL - Stress Free Weight Loss With Dr Ada",
+      htmlAttrs: { lang: "en" },
+      meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "format-detection", content: "telephone=no" },
+      ],
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" }],
+    },
+  },
   plugins: ["~/plugins/aos.client.ts"],
-  modules: ["@vite-pwa/nuxt"],
+  googleFonts: {
+    families: {
+      Roboto: true, // Replace 'Roboto' with any available Google Font
+    },
+    display: 'swap', // Optional: Controls how the font is displayed
+  },
+  modules: ["@vite-pwa/nuxt", '@nuxtjs/google-fonts'],
   pwa: {
     registerType: "autoUpdate",
     manifest: {

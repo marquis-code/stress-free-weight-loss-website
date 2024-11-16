@@ -299,14 +299,6 @@ const router = useRouter()
       currentStep.value--;
     }
   };
-  
-  // Payment Modal Actions
-  // const confirmPayment = () => {
-  //   window.open(
-  //     `https://wa.me/2347030338088?text=Hello,%20I%20have%20completed%20my%20payment.%20Please%20confirm.%20Thank%20you!`,
-  //     "_blank"
-  //   );
-  // };
 
   const confirmPayment = () => {
   const { goal, activityLevel, weightLossGoal, mealPlan } = formData.value;
