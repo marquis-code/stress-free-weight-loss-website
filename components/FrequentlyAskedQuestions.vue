@@ -1,10 +1,10 @@
 <template>
     <main>
-        <div class="bg-white">
+        <div class="bg-white py-20">
             <div class="mx-auto max-w-7xl px-6 py-10 sm:pt-10 lg:px-8 lg:py-10">
                 <div class="lg:grid lg:grid-cols-12 lg:gap-8">
                     <div class="lg:col-span-5" data-aos="fade-up">
-                        <h2 class="text-2xl font-bold leading-10 tracking-tight text-white">Frequently asked questions</h2>
+                        <h2 class="text-2xl font-bold leading-10 tracking-tight">Frequently asked questions</h2>
                         <p class="mt-6 max-w-2xl text-base leading-7 text-gray-300">Have a different question and can’t find the answer you’re looking for? Reach out to our support team by <a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">sending us an email</a> and we’ll get back to you as soon as we can.</p>
                     </div>
                     <div class="lg:col-span-7 lg:mt-0 space-y-8 pt-6 md:pt-0" data-aos="fade-up">
@@ -48,26 +48,27 @@
 <script lang="ts" setup>
 const faqs = [
     {
-        id: 1, question: 'How can I get started?', answer: `To get started, simply reach out to our team through the contact form or give us a call. We'll be happy to discuss your project and provide you with all the information you need.`
+        id: 1, question: 'What\'s the most effective diet for weight loss ?', answer: `To get started, simply reach out to our team through the contact form or give us a call. We'll be happy to discuss your project and provide you with all the information you need.
+`
     },
     {
-        id: 2, question: 'What services do you offer?', answer: `We offer a wide range of services including software development, product design, and bespoke software solutions. Our team is experienced in working with startups, scale-ups, and enterprises across various industries.
+        id: 2, question: 'How many calories should I eat to lose weight ?', answer: `We offer a wide range of services including software development, product design, and bespoke software solutions. Our team is experienced in working with startups, scale-ups, and enterprises across various industries..
 `
     },
     {
         id: 3,
-        question: `How do you ensure quality?`,
-        answer: `We prioritize quality assurance through manual testing and test automation. This allows us to deliver powerful web and mobile applications that provide a seamless user experience.
+        question: `Is it better to focus on diet or exercise for weight loss ?`,
+        answer: `We prioritize quality assurance through manual testing and test automation. This allows us to deliver powerful web and mobile applications that provide a seamless user experience..
 `
     },
     {
         id: 4,
-        question: `What is your design process?`,
+        question: `What are some healthy snacks for weight loss ?`,
         answer: `Our design process focuses on creating user-friendly navigation, engaging UX/UI design, and improving conversions through relevant content and consistent branding. We support clients at any stage of product development, from discovery to UX/UI design.`
     },
     {
         id: 5,
-        question: `Can you help with scalability?`,
+        question: `How can I lose weight without feeling hungry all the time ?`,
         answer: `Yes, we ensure that our designs are scalable and coherent across all teams involved. Whether you're a startup or an enterprise, we can help you build a digital product that grows with your business.`
     }
 ]

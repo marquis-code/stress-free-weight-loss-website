@@ -6,7 +6,7 @@
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">Your Company</span>
-          <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt="">
+          <img class="h-20 w-full" src="@/assets/logo.png" alt="">
         </a>
       </div>
       <div class="flex lg:hidden">
@@ -35,7 +35,7 @@
         <div class="flex items-center justify-between">
           <a href="#" class="-m-1.5 p-1.5">
             <span class="sr-only">Your Company</span>
-            <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt="">
+            <img class="h-8 w-auto" src="@/assets/logo.png" alt="">
           </a>
           <button @click="isOpen = false" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
             <span class="sr-only">Close menu</span>
@@ -72,8 +72,8 @@
           </h1>
           <p class="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">Discover a stress-free and healthy approach to weight loss with our personalized coaching program. Achieve your weight loss goals and maintain a healthy lifestyle for life.</p>
           <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
-            <a href="#" class="text-sm/6 font-semibold text-gray-900">Sign up<span aria-hidden="true">→</span></a>
+            <a href="#coaching-options" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+            <!-- <a href="#" class="text-sm/6 font-semibold text-gray-900">Sign up<span aria-hidden="true">→</span></a> -->
           </div>
         </div>
         <div class="mt-16 flow-root sm:mt-24">
@@ -103,496 +103,130 @@
   </div>
 </div>
 
-<div class="overflow-hidden bg-white py-24 sm:py-32">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-      <div class="lg:pr-8 lg:pt-4">
-        <div class="lg:max-w-lg">
-         
-          <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Discover Personalized Nutrition Plans for Your Unique Needs</p>
-          <p class="mt-6 text-lg/8 text-gray-600">Our nutrition experts design tailored meal plans to help you achieve your weight loss goals while meeting your individual needs.</p>
-          <dl class="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Zm3.75-2.75a.75.75 0 0 0 1.5 0V9.66l1.95 2.1a.75.75 0 1 0 1.1-1.02l-3.25-3.5a.75.75 0 0 0-1.1 0l-3.25 3.5a.75.75 0 1 0 1.1 1.02l1.95-2.1v4.59Z" clip-rule="evenodd" />
-                </svg>
-                Tailored Meal
-              </dt>
-              <dd class="inline">Enjoy delicious and satisfying meals designed to support your weight loss journey.</dd>
-            </div>
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" />
-                </svg>
-                Personalized Support
-              </dt>
-              <dd class="inline">Receive guidance and motivation from our experienced professionals throughout your weight loss journey.</dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-      <img src="@/assets/personalized-diet4.jpg" alt="Product screenshot" class="w-[48rem] h-[38rem] object-cover max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" width="2432" height="1442">
-    </div>
+<QuestionBubbles />
+
+ <DesignedHero  />
+
+
+<PaymentOption id="coaching-options" />
+
+<div class="bg-gray-900">
+  <div class="mx-auto max-w-7xl px-6 lg:max-w-7xl lg:px-8">
+    <!-- <h2 class="text-base/7 font-semibold text-indigo-400">Deploy faster</h2> -->
+    <p class="max-w-xl text-pretty text-4xl mb-10 font-semibold tracking-tight text-white sm:text-5xl">What we offer at Stress Free Weight Loss with Dr Ada</p>
+
+    <CardSlideUp />
+
+
   </div>
 </div>
 
-<div class="overflow-hidden bg-white py-24 sm:py-32">
+<FrequentlyAskedQuestions />
+
+
+<TestTestimonials />
+<ContactSection id="contact-form"/>
+
+<div class="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-      <div class="lg:ml-auto lg:pl-4 lg:pt-4">
-        <div class="lg:max-w-lg">
-          
-          <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Customized Fitness Programs for Optimal Results</p>
-          <p class="mt-6 text-lg/8 text-gray-600">Our fitness programs are designed to help you achieve your weight loss goals with personalized exercise routines. Whether you're a beginner or an experienced fitness enthusiast, our certified trainers will create a plan tailored to your needs and preferences.</p>
-          <dl class="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Zm3.75-2.75a.75.75 0 0 0 1.5 0V9.66l1.95 2.1a.75.75 0 1 0 1.1-1.02l-3.25-3.5a.75.75 0 0 0-1.1 0l-3.25 3.5a.75.75 0 1 0 1.1 1.02l1.95-2.1v4.59Z" clip-rule="evenodd" />
-                </svg>
-                Push to deploy.
-              </dt>
-              <dd class="inline">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
-            </div>
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" />
-                </svg>
-                SSL certificates.
-              </dt>
-              <dd class="inline">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.</dd>
-            </div>
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path d="M4.632 3.533A2 2 0 0 1 6.577 2h6.846a2 2 0 0 1 1.945 1.533l1.976 8.234A3.489 3.489 0 0 0 16 11.5H4c-.476 0-.93.095-1.344.267l1.976-8.234Z" />
-                  <path fill-rule="evenodd" d="M4 13a2 2 0 1 0 0 4h12a2 2 0 1 0 0-4H4Zm11.24 2a.75.75 0 0 1 .75-.75H16a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75h-.01a.75.75 0 0 1-.75-.75V15Zm-2.25-.75a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75H13a.75.75 0 0 0 .75-.75V15a.75.75 0 0 0-.75-.75h-.01Z" clip-rule="evenodd" />
-                </svg>
-                Database backups.
-              </dt>
-              <dd class="inline">Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.</dd>
-            </div>
-          </dl>
+    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+      <!-- Left: Newsletter Heading and Form -->
+      <div class="max-w-xl lg:max-w-lg">
+        <h2 class="text-4xl font-semibold tracking-tight text-white">
+          Stay Updated with Our Newsletter
+        </h2>
+        <p class="mt-4 text-lg text-gray-300">
+          Join thousands of others who receive exclusive fitness tips, health news, and special offers directly in their inbox.
+        </p>
+        <div class="mt-6 flex max-w-md gap-x-4">
+          <label for="email-address" class="sr-only">Email address</label>
+          <input
+            id="email-address"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+            class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm/6"
+            placeholder="Enter your email"
+          />
+          <button
+            type="submit"
+            class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+          >
+            Subscribe
+          </button>
         </div>
       </div>
-      <div class="flex items-start justify-end lg:order-first">
-        <img src="@/assets/weight4.jpg" alt="Product screenshot" class="w-[48rem] h-[38rem] object-cover max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]" width="2432" height="1442">
-      </div>
-    </div>
-  </div>
-</div>
 
-
-<div class="overflow-hidden bg-white py-24 sm:py-32">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-      <div class="lg:pr-8 lg:pt-4">
-        <div class="lg:max-w-lg">
-         .
-          <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Track Your Progress and Stay Connected with Our Mobile Apps
-
-</p>
-          <p class="mt-6 text-lg/8 text-gray-600">Our mobile apps provide you with the tools you need to easily track your weight loss progress and stay connected with our coaching team and fellow members..</p>
-          <dl class="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Zm3.75-2.75a.75.75 0 0 0 1.5 0V9.66l1.95 2.1a.75.75 0 1 0 1.1-1.02l-3.25-3.5a.75.75 0 0 0-1.1 0l-3.25 3.5a.75.75 0 1 0 1.1 1.02l1.95-2.1v4.59Z" clip-rule="evenodd" />
-                </svg>
-                Easy Tracking
-              </dt>
-              <dd class="inline">Effortlessly log your food intake, monitor physical activity, and stay connected with our coaches and peers.
-              </dd>
-            </div>
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" />
-                </svg>
-                Stay Connected
-              </dt>
-              <dd class="inline">Join our online forums and support groups to share experiences and celebrate successes together.</dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-      <img src="@/assets/weight8.jpg" alt="Product screenshot" class="w-[48rem] h-[38rem] object-cover max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" width="2432" height="1442">
-    </div>
-  </div>
-</div>
-
-<div class="overflow-hidden bg-white py-24 sm:py-32">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-      <div class="lg:ml-auto lg:pl-4 lg:pt-4">
-        <div class="lg:max-w-lg">
-          <!-- <h2 class="text-base/7 font-semibold text-indigo-600">Deploy faster</h2> -->
-          <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Sustained Weight Loss Support for a Healthier You</p>
-          <p class="mt-6 text-lg/8 text-gray-600">At Stress-Free Weight Loss, we believe in providing ongoing support to help you maintain your weight loss achievements and live a healthier life. Our post-program maintenance services are designed to keep you on track and ensure long-term success..</p>
-          <dl class="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Zm3.75-2.75a.75.75 0 0 0 1.5 0V9.66l1.95 2.1a.75.75 0 1 0 1.1-1.02l-3.25-3.5a.75.75 0 0 0-1.1 0l-3.25 3.5a.75.75 0 1 0 1.1 1.02l1.95-2.1v4.59Z" clip-rule="evenodd" />
-                </svg>
-                Ongoing Support
-              </dt>
-              <dd class="inline">Access to alumni programs, follow-up consultations, and support groups for continued motivation.</dd>
-            </div>
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" />
-                </svg>
-                Sustained Succes
-              </dt>
-              <dd class="inline">Stay connected with coaches and peers through our mobile apps and online tools.</dd>
-            </div>
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path d="M4.632 3.533A2 2 0 0 1 6.577 2h6.846a2 2 0 0 1 1.945 1.533l1.976 8.234A3.489 3.489 0 0 0 16 11.5H4c-.476 0-.93.095-1.344.267l1.976-8.234Z" />
-                  <path fill-rule="evenodd" d="M4 13a2 2 0 1 0 0 4h12a2 2 0 1 0 0-4H4Zm11.24 2a.75.75 0 0 1 .75-.75H16a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75h-.01a.75.75 0 0 1-.75-.75V15Zm-2.25-.75a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75H13a.75.75 0 0 0 .75-.75V15a.75.75 0 0 0-.75-.75h-.01Z" clip-rule="evenodd" />
-                </svg>
-                Database backups.
-              </dt>
-              <dd class="inline">Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.</dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-      <div class="flex items-start justify-end lg:order-first">
-        <img src="@/assets/weight7.jpg" alt="Product screenshot" class="w-[48rem] h-[38rem] object-cover max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]" width="2432" height="1442">
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="overflow-hidden bg-white py-24 sm:py-32">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-      <div class="lg:pr-8 lg:pt-4">
-        <div class="lg:max-w-lg">
-          <!-- <h2 class="text-base/7 font-semibold text-indigo-600">Deploy faster</h2> -->
-          <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Join Our Supportive Weight Loss Community Today</p>
-          <p class="mt-6 text-lg/8 text-gray-600">Discover the power of group coaching and community support in achieving your weight loss goals. Our Stress-Free Weight Loss program provides personalized nutrition plans, fitness programs, and one-on-one coaching, all within a supportive community that celebrates your successes and keeps you accountable.</p>
-          <dl class="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Zm3.75-2.75a.75.75 0 0 0 1.5 0V9.66l1.95 2.1a.75.75 0 1 0 1.1-1.02l-3.25-3.5a.75.75 0 0 0-1.1 0l-3.25 3.5a.75.75 0 1 0 1.1 1.02l1.95-2.1v4.59Z" clip-rule="evenodd" />
-                </svg>
-                Benefits
-              </dt>
-              <dd class="inline"> Personalized Nutrition Plans, Customized Fitness Programs, Dedicated Coaching Sessions, Supportive Community</dd>
-            </div>
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" />
-                </svg>
-                Support
-              </dt>
-              <dd class="inline">Regular Group Meetings, Online Forums, Share Experiences, Offer Support, Celebrate Successes</dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-      <img src="@/assets/weight10.jpg" alt="Product screenshot" class="w-[48rem] h-[38rem] object-cover max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" width="2432" height="1442">
-    </div>
-  </div>
-</div>
-
-<div class="overflow-hidden bg-white py-24 sm:py-32">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-      <div class="lg:ml-auto lg:pl-4 lg:pt-4">
-        <div class="lg:max-w-lg">
-          <!-- <h2 class="text-base/7 font-semibold text-indigo-600">Deploy faster</h2> -->
-          <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Regular Group Meetings, Online Forums, Share Experiences, Offer Support, Celebrate Successes</p>
-          <p class="mt-6 text-lg/8 text-gray-600">Our Behavioral Therapy services are designed to help you break free from emotional eating patterns and manage stress effectively. With personalized counseling sessions, our experienced professionals will guide you towards developing healthy habits and a positive mindset for long-term success.</p>
-          <dl class="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Zm3.75-2.75a.75.75 0 0 0 1.5 0V9.66l1.95 2.1a.75.75 0 1 0 1.1-1.02l-3.25-3.5a.75.75 0 0 0-1.1 0l-3.25 3.5a.75.75 0 1 0 1.1 1.02l1.95-2.1v4.59Z" clip-rule="evenodd" />
-                </svg>
-                Break Free 
-              </dt>
-              <dd class="inline">Overcome emotional eating and stress to achieve your weight loss goals.</dd>
-            </div>
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" />
-                </svg>
-                Find Balance
-              </dt>
-              <dd class="inline">Learn techniques to manage stress and create a healthy relationship with food.</dd>
-            </div>
-            <div class="relative pl-9">
-              <dt class="inline font-semibold text-gray-900">
-                <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                  <path d="M4.632 3.533A2 2 0 0 1 6.577 2h6.846a2 2 0 0 1 1.945 1.533l1.976 8.234A3.489 3.489 0 0 0 16 11.5H4c-.476 0-.93.095-1.344.267l1.976-8.234Z" />
-                  <path fill-rule="evenodd" d="M4 13a2 2 0 1 0 0 4h12a2 2 0 1 0 0-4H4Zm11.24 2a.75.75 0 0 1 .75-.75H16a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75h-.01a.75.75 0 0 1-.75-.75V15Zm-2.25-.75a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75H13a.75.75 0 0 0 .75-.75V15a.75.75 0 0 0-.75-.75h-.01Z" clip-rule="evenodd" />
-                </svg>
-                Database backups.
-              </dt>
-              <dd class="inline">Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.</dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-      <div class="flex items-start justify-end lg:order-first">
-        <img src="@/assets/weight2.jpg" alt="Product screenshot" class="w-[48rem] h-[38rem] object-cover max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]" width="2432" height="1442">
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="bg-gray-900 py-24 sm:py-32">
-  <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-    <h2 class="text-base/7 font-semibold text-indigo-400">Deploy faster</h2>
-    <p class="mt-2 max-w-lg text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl">What we offer                                                                                      </p>
-    <div class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
-      <div class="flex p-px lg:col-span-4">
-        <div class="overflow-hidden rounded-lg bg-gray-800 ring-1 ring-white/15 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]">
-          <img class="h-80 object-cover object-left" src="https://tailwindui.com/plus/img/component-images/bento-02-releases.png" alt="">
-          <div class="p-10">
-            <h3 class="text-sm/4 font-semibold text-gray-400">Releases</h3>
-            <p class="mt-2 text-lg font-medium tracking-tight text-white">Push to deploy</p>
-            <p class="mt-2 max-w-lg text-sm/6 text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida justo et nulla efficitur, maximus egestas sem pellentesque.</p>
+      <!-- Right: Highlights -->
+      <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
+        <!-- Weekly Tips -->
+        <div class="flex flex-col items-start">
+          <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+            <svg
+              class="h-6 w-6 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+              />
+            </svg>
           </div>
+          <dt class="mt-4 text-base font-semibold text-white">Weekly Tips</dt>
+          <dd class="mt-2 text-base/7 text-gray-400">
+            Get actionable fitness advice delivered straight to your inbox to help you stay on track.
+          </dd>
         </div>
-      </div>
-      <div class="flex p-px lg:col-span-2">
-        <div class="overflow-hidden rounded-lg bg-gray-800 ring-1 ring-white/15 lg:rounded-tr-[2rem]">
-          <img class="h-80 object-cover object-center" src="https://tailwindui.com/plus/img/component-images/bento-02-integrations.png" alt="">
-          <div class="p-10">
-            <h3 class="text-sm/4 font-semibold text-gray-400">Integrations</h3>
-            <p class="mt-2 text-lg font-medium tracking-tight text-white">Connect your favorite tools</p>
-            <p class="mt-2 max-w-lg text-sm/6 text-gray-400">Curabitur auctor, ex quis auctor venenatis, eros arcu rhoncus massa.</p>
+
+        <!-- Spam-Free -->
+        <div class="flex flex-col items-start">
+          <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+            <svg
+              class="h-6 w-6 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+              data-slot="icon"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10.05 4.575a1.575 1.575 0 1 0-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 0 1 3.15 0v1.5m-3.15 0 .075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 0 1 3.15 0V15M6.9 7.575a1.575 1.575 0 1 0-3.15 0v8.175a6.75 6.75 0 0 0 6.75 6.75h2.018a5.25 5.25 0 0 0 3.712-1.538l1.732-1.732a5.25 5.25 0 0 0 1.538-3.712l.003-2.024a.668.668 0 0 1 .198-.471 1.575 1.575 0 1 0-2.228-2.228 3.818 3.818 0 0 0-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0 1 16.35 15m.002 0h-.002"
+              />
+            </svg>
           </div>
-        </div>
-      </div>
-      <div class="flex p-px lg:col-span-2">
-        <div class="overflow-hidden rounded-lg bg-gray-800 ring-1 ring-white/15 lg:rounded-bl-[2rem]">
-          <img class="h-80 object-cover object-center" src="https://tailwindui.com/plus/img/component-images/bento-02-security.png" alt="">
-          <div class="p-10">
-            <h3 class="text-sm/4 font-semibold text-gray-400">Security</h3>
-            <p class="mt-2 text-lg font-medium tracking-tight text-white">Advanced access control</p>
-            <p class="mt-2 max-w-lg text-sm/6 text-gray-400">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.</p>
-          </div>
-        </div>
-      </div>
-      <div class="flex p-px lg:col-span-4">
-        <div class="overflow-hidden rounded-lg bg-gray-800 ring-1 ring-white/15 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]">
-          <img class="h-80 object-cover object-left" src="https://tailwindui.com/plus/img/component-images/bento-02-performance.png" alt="">
-          <div class="p-10">
-            <h3 class="text-sm/4 font-semibold text-gray-400">Performance</h3>
-            <p class="mt-2 text-lg font-medium tracking-tight text-white">Lightning-fast builds</p>
-            <p class="mt-2 max-w-lg text-sm/6 text-gray-400">Sed congue eros non finibus molestie. Vestibulum euismod augue vel commodo vulputate. Maecenas at augue sed elit dictum vulputate.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bg-white">
-  <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
-    <div class="mx-auto max-w-4xl divide-y divide-gray-900/10">
-      <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Frequently asked questions</h2>
-      <dl class="mt-10 space-y-6 divide-y divide-gray-900/10">
-        <div class="pt-6">
-          <dt>
-            <!-- Expand/collapse question button -->
-            <button type="button" class="flex w-full items-start justify-between text-left text-gray-900" aria-controls="faq-0" aria-expanded="false">
-              <span class="text-base/7 font-semibold">What's the most effective diet for weight loss?</span>
-              <span class="ml-6 flex h-7 items-center">
-                <!--
-                  Icon when question is collapsed.
-
-                  Item expanded: "hidden", Item collapsed: ""
-                -->
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                </svg>
-                <!--
-                  Icon when question is expanded.
-
-                  Item expanded: "", Item collapsed: "hidden"
-                -->
-                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
-                </svg>
-              </span>
-            </button>
-          </dt>
-          <dd class="mt-2 pr-12" id="faq-0">
-            <p class="text-base/7 text-gray-600">To get started, simply reach out to our team through the contact form or give us a call. We'll be happy to discuss your project and provide you with all the information you need.</p>
+          <dt class="mt-4 text-base font-semibold text-white">No Spam</dt>
+          <dd class="mt-2 text-base/7 text-gray-400">
+            Your privacy is important to us. We’ll only send you the good stuff—no spam, ever.
           </dd>
         </div>
-
-
-        <div class="pt-6">
-          <dt>
-            <!-- Expand/collapse question button -->
-            <button type="button" class="flex w-full items-start justify-between text-left text-gray-900" aria-controls="faq-0" aria-expanded="false">
-              <span class="text-base/7 font-semibold">How many calories should I eat to lose weight?</span>
-              <span class="ml-6 flex h-7 items-center">
-                <!--
-                  Icon when question is collapsed.
-
-                  Item expanded: "hidden", Item collapsed: ""
-                -->
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                </svg>
-                <!--
-                  Icon when question is expanded.
-
-                  Item expanded: "", Item collapsed: "hidden"
-                -->
-                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
-                </svg>
-              </span>
-            </button>
-          </dt>
-          <dd class="mt-2 pr-12" id="faq-0">
-            <p class="text-base/7 text-gray-600">We offer a wide range of services including software development, product design, and bespoke software solutions. Our team is experienced in working with startups, scale-ups, and enterprises across various industries.</p>
-          </dd>
-        </div>
-
-
-        <div class="pt-6">
-          <dt>
-            <!-- Expand/collapse question button -->
-            <button type="button" class="flex w-full items-start justify-between text-left text-gray-900" aria-controls="faq-0" aria-expanded="false">
-              <span class="text-base/7 font-semibold">Is it better to focus on diet or exercise for weight loss?</span>
-              <span class="ml-6 flex h-7 items-center">
-                <!--
-                  Icon when question is collapsed.
-
-                  Item expanded: "hidden", Item collapsed: ""
-                -->
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                </svg>
-                <!--
-                  Icon when question is expanded.
-
-                  Item expanded: "", Item collapsed: "hidden"
-                -->
-                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
-                </svg>
-              </span>
-            </button>
-          </dt>
-          <dd class="mt-2 pr-12" id="faq-0">
-            <p class="text-base/7 text-gray-600">We prioritize quality assurance through manual testing and test automation. This allows us to deliver powerful web and mobile applications that provide a seamless user experience.</p>
-          </dd>
-        </div>
-
-
-        <div class="pt-6">
-          <dt>
-            <!-- Expand/collapse question button -->
-            <button type="button" class="flex w-full items-start justify-between text-left text-gray-900" aria-controls="faq-0" aria-expanded="false">
-              <span class="text-base/7 font-semibold">What are some healthy snacks for weight loss?</span>
-              <span class="ml-6 flex h-7 items-center">
-                <!--
-                  Icon when question is collapsed.
-
-                  Item expanded: "hidden", Item collapsed: ""
-                -->
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                </svg>
-                <!--
-                  Icon when question is expanded.
-
-                  Item expanded: "", Item collapsed: "hidden"
-                -->
-                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
-                </svg>
-              </span>
-            </button>
-          </dt>
-          <dd class="mt-2 pr-12" id="faq-0">
-            <p class="text-base/7 text-gray-600">Our design process focuses on creating user-friendly navigation, engaging UX/UI design, and improving conversions through relevant content and consistent branding. We support clients at any stage of product development, from discovery to UX/UI design.</p>
-          </dd>
-        </div>
-
-        <div class="pt-6">
-          <dt>
-            <!-- Expand/collapse question button -->
-            <button type="button" class="flex w-full items-start justify-between text-left text-gray-900" aria-controls="faq-0" aria-expanded="false">
-              <span class="text-base/7 font-semibold">How can I lose weight without feeling hungry all the time?</span>
-              <span class="ml-6 flex h-7 items-center">
-                <!--
-                  Icon when question is collapsed.
-
-                  Item expanded: "hidden", Item collapsed: ""
-                -->
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                </svg>
-                <!--
-                  Icon when question is expanded.
-
-                  Item expanded: "", Item collapsed: "hidden"
-                -->
-                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
-                </svg>
-              </span>
-            </button>
-          </dt>
-          <dd class="mt-2 pr-12" id="faq-0">
-            <p class="text-base/7 text-gray-600">Yes, we ensure that our designs are scalable and coherent across all teams involved. Whether you're a startup or an enterprise, we can help you build a digital product that grows with your business.</p>
-          </dd>
-        </div>
-
-        <!-- More questions... -->
       </dl>
     </div>
   </div>
-</div>
 
-<TestTestimonials />
-
-<div class="bg-gray-900 py-24 sm:py-32">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
-      <div class="mx-auto w-full max-w-xl lg:mx-0">
-        <h2 class="text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl">Trusted by the most innovative teams</h2>
-        <p class="mt-6 text-lg/8 text-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue.</p>
-        <div class="mt-8 flex items-center gap-x-6">
-          <a href="#" class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Create account</a>
-          <a href="#" class="text-sm font-semibold text-white">Contact us <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </div>
-      <div class="mx-auto grid w-full max-w-xl grid-cols-2 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
-        <img class="max-h-12 w-full object-contain object-left" src="https://tailwindui.com/plus/img/logos/tuple-logo-white.svg" alt="Tuple" width="105" height="48">
-        <img class="max-h-12 w-full object-contain object-left" src="https://tailwindui.com/plus/img/logos/reform-logo-white.svg" alt="Reform" width="104" height="48">
-        <img class="max-h-12 w-full object-contain object-left" src="https://tailwindui.com/plus/img/logos/savvycal-logo-white.svg" alt="SavvyCal" width="140" height="48">
-        <img class="max-h-12 w-full object-contain object-left" src="https://tailwindui.com/plus/img/logos/laravel-logo-white.svg" alt="Laravel" width="136" height="48">
-        <img class="max-h-12 w-full object-contain object-left" src="https://tailwindui.com/plus/img/logos/transistor-logo-white.svg" alt="Transistor" width="158" height="48">
-        <img class="max-h-12 w-full object-contain object-left" src="https://tailwindui.com/plus/img/logos/statamic-logo-white.svg" alt="Statamic" width="147" height="48">
-      </div>
-    </div>
+  <!-- Background Gradient -->
+  <div
+    class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6"
+    aria-hidden="true"
+  >
+    <div
+      class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
+      style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+    ></div>
   </div>
 </div>
 
-<div class="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
+
+<!-- <div class="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
       <div class="max-w-xl lg:max-w-lg">
@@ -629,149 +263,40 @@
   <div class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
     <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
   </div>
-</div>
-
-
-<div class="relative isolate bg-white">
-  <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
-    <div class="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
-      <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-        <div class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 lg:w-1/2">
-          <svg class="absolute inset-0 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
-            <defs>
-              <pattern id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527" width="200" height="200" x="100%" y="-1" patternUnits="userSpaceOnUse">
-                <path d="M130 200V.5M.5 .5H200" fill="none" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" stroke-width="0" fill="white" />
-            <svg x="100%" y="-1" class="overflow-visible fill-gray-50">
-              <path d="M-470.5 0h201v201h-201Z" stroke-width="0" />
-            </svg>
-            <rect width="100%" height="100%" stroke-width="0" fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />
-          </svg>
-        </div>
-        <h2 class="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Get in touch</h2>
-        <p class="mt-6 text-lg/8 text-gray-600">Proin volutpat consequat porttitor cras nullam gravida at. Orci molestie a eu arcu. Sed ut tincidunt integer elementum id sem. Arcu sed malesuada et magna.</p>
-        <dl class="mt-10 space-y-4 text-base/7 text-gray-600">
-          <div class="flex gap-x-4">
-            <dt class="flex-none">
-              <span class="sr-only">Address</span>
-              <svg class="h-7 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
-              </svg>
-            </dt>
-            <dd>LUTH Idi-araba Lagos</dd>
-          </div>
-          <div class="flex gap-x-4">
-            <dt class="flex-none">
-              <span class="sr-only">Telephone</span>
-              <svg class="h-7 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-              </svg>
-            </dt>
-            <dd><a class="hover:text-gray-900" href="tel:+2308147341598">+234 473-415-98</a></dd>
-          </div>
-          <div class="flex gap-x-4">
-            <dt class="flex-none">
-              <span class="sr-only">Email</span>
-              <svg class="h-7 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-              </svg>
-            </dt>
-            <dd><a class="hover:text-gray-900" href="mailto:hello@example.com">SwlDrAda@gmail.com </a></dd>
-          </div>
-        </dl>
-      </div>
-    </div>
-    <form action="#" method="POST" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
-      <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
-        <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-          <div>
-            <label for="first-name" class="block text-sm/6 font-semibold text-gray-900">First name</label>
-            <div class="mt-2.5">
-              <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
-            </div>
-          </div>
-          <div>
-            <label for="last-name" class="block text-sm/6 font-semibold text-gray-900">Last name</label>
-            <div class="mt-2.5">
-              <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
-            </div>
-          </div>
-          <div class="sm:col-span-2">
-            <label for="email" class="block text-sm/6 font-semibold text-gray-900">Email</label>
-            <div class="mt-2.5">
-              <input type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
-            </div>
-          </div>
-          <div class="sm:col-span-2">
-            <label for="phone-number" class="block text-sm/6 font-semibold text-gray-900">Phone number</label>
-            <div class="mt-2.5">
-              <input type="tel" name="phone-number" id="phone-number" autocomplete="tel" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
-            </div>
-          </div>
-          <div class="sm:col-span-2">
-            <label for="message" class="block text-sm/6 font-semibold text-gray-900">Message</label>
-            <div class="mt-2.5">
-              <textarea name="message" id="message" rows="4" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"></textarea>
-            </div>
-          </div>
-        </div>
-        <div class="mt-8 flex justify-end">
-          <button type="submit" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Send message</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
+</div> -->
 
 <footer class="bg-gray-900">
   <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
     <div class="mx-auto max-w-2xl text-center">
-      <h2 class="text-base/7 font-semibold text-indigo-400">Get started</h2>
-      <p class="mt-2 text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl">Boost your productivity. Start using our app today.</p>
-      <p class="mx-auto mt-6 max-w-xl text-pretty text-lg/8 text-gray-400">Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.</p>
+      <h2 class="text-base/7 font-semibold text-indigo-400">Join Us</h2>
+      <p class="mt-2 text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl">Empower your journey with us.</p>
+      <p class="mx-auto mt-6 max-w-xl text-pretty text-lg/8 text-gray-400">
+        Stay ahead with actionable insights, exclusive tools, and updates delivered straight to your inbox. Start your transformation today.
+      </p>
+      <!-- <p class="mx-auto mt-6 max-w-xl text-pretty text-lg/8 text-gray-400">Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.</p> -->
       <div class="mt-8 flex justify-center">
-        <a href="#" class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">Get started</a>
+        <a href="#contact-form" class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">Get started</a>
       </div>
     </div>
     <div class="mt-24 border-t border-white/10 pt-12 xl:grid xl:grid-cols-3 xl:gap-8">
-      <img class="h-9" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Company name">
+      <img class="h-20" src="@/assets/logo.png" alt="Company name">
       <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
         <div class="md:grid md:grid-cols-2 md:gap-8">
           <div>
             <h3 class="text-sm/6 font-semibold text-white">Solutions</h3>
             <ul role="list" class="mt-6 space-y-4">
-              <li>
-                <a href="#" class="text-sm/6 text-gray-400 hover:text-white">Marketing</a>
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-400 hover:text-white">Analytics</a>
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-400 hover:text-white">Automation</a>
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-400 hover:text-white">Commerce</a>
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-400 hover:text-white">Insights</a>
-              </li>
+              <li><a href="#" class="text-sm/6 text-gray-400 hover:text-white">Weight Management</a></li>
+              <li><a href="#" class="text-sm/6 text-gray-400 hover:text-white">Fitness Coaching</a></li>
+              <li><a href="#" class="text-sm/6 text-gray-400 hover:text-white">Meal Planning</a></li>
+              <li><a href="#" class="text-sm/6 text-gray-400 hover:text-white">Progress Tracking</a></li>
             </ul>
           </div>
           <div class="mt-10 md:mt-0">
             <h3 class="text-sm/6 font-semibold text-white">Support</h3>
             <ul role="list" class="mt-6 space-y-4">
-              <li>
-                <a href="#" class="text-sm/6 text-gray-400 hover:text-white">Submit ticket</a>
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-400 hover:text-white">Documentation</a>
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-400 hover:text-white">Guides</a>
-              </li>
+              <li><a href="#" class="text-sm/6 text-gray-400 hover:text-white">FAQs</a></li>
+              <li><a href="#" class="text-sm/6 text-gray-400 hover:text-white">Contact Us</a></li>
+              <li><a href="#" class="text-sm/6 text-gray-400 hover:text-white">Help Center</a></li>
             </ul>
           </div>
         </div>
