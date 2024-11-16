@@ -66,7 +66,7 @@
                         </dl>
                     </div>
                 </div>
-                <form @submit.prevent="handleSubmit" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"
+                <!-- <form @submit.prevent="handleSubmit" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"
                     data-aos="fade-up">
                     <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                         <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -124,14 +124,206 @@
                                 {{ processing ? 'processing' : 'Send message' }}</button>
                         </div>
                     </div>
-                </form>
+                </form> -->
+                <form @submit.prevent="handleSubmit" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" data-aos="fade-up">
+  <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
+    <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+      <!-- First Name -->
+      <div>
+        <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">First name</label>
+        <div class="mt-2.5">
+          <input
+            type="text"
+            v-model="formData.firstName"
+            name="first-name"
+            id="first-name"
+            autocomplete="given-name"
+            placeholder="Enter your first name"
+            class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
+          />
+        </div>
+      </div>
+
+      <!-- Last Name -->
+      <div>
+        <label for="last-name" class="block text-sm font-semibold leading-6 text-gray-900">Last name</label>
+        <div class="mt-2.5">
+          <input
+            type="text"
+            v-model="formData.lastName"
+            name="last-name"
+            id="last-name"
+            autocomplete="family-name"
+            placeholder="Enter your last name"
+            class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
+          />
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="sm:col-span-2">
+        <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email</label>
+        <div class="mt-2.5">
+          <input
+            type="email"
+            v-model="formData.email"
+            name="email"
+            id="email"
+            autocomplete="email"
+            placeholder="Enter your email address"
+            class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
+          />
+        </div>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="sm:col-span-2">
+        <label for="phone-number" class="block text-sm font-semibold leading-6 text-gray-900">Phone number</label>
+        <div class="mt-2.5">
+          <input
+            type="tel"
+            v-model="formData.phoneNumber"
+            name="phone-number"
+            id="phone-number"
+            autocomplete="tel"
+            placeholder="Enter your phone number"
+            class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
+          />
+        </div>
+      </div>
+
+      <!-- Age -->
+      <div>
+        <label for="age" class="block text-sm font-semibold leading-6 text-gray-900">Age</label>
+        <div class="mt-2.5">
+          <input
+            type="number"
+            v-model="formData.age"
+            name="age"
+            id="age"
+            placeholder="Enter your age"
+            class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
+          />
+        </div>
+      </div>
+
+      <!-- Gender -->
+      <div>
+        <label for="gender" class="block text-sm font-semibold leading-6 text-gray-900">Gender</label>
+        <div class="mt-2.5">
+          <select
+            v-model="formData.gender"
+            name="gender"
+            id="gender"
+            class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm sm:text-sm sm:leading-6"
+          >
+            <option value="" disabled selected>Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="non-binary">Non-binary</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Weight Loss Goal -->
+      <div class="sm:col-span-2">
+        <label for="weight-loss-goal" class="block text-sm font-semibold leading-6 text-gray-900">Weight Loss Goal</label>
+        <div class="mt-2.5">
+          <input
+            type="text"
+            v-model="formData.weight_loss_goal"
+            name="weight-loss-goal"
+            id="weight-loss-goal"
+            placeholder="What is your weight loss goal?"
+            class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
+          />
+        </div>
+      </div>
+
+      <!-- Activity Level -->
+      <div class="sm:col-span-2">
+        <label for="activity-level" class="block text-sm font-semibold leading-6 text-gray-900">Activity Level</label>
+        <div class="mt-2.5">
+          <input
+            type="text"
+            v-model="formData.current_activity_level"
+            name="activity-level"
+            id="activity-level"
+            placeholder="Describe your current activity level"
+            class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
+          />
+        </div>
+      </div>
+
+      <!-- Diet Preferences or Restrictions -->
+      <div class="sm:col-span-2">
+        <label for="diet-preferences" class="block text-sm font-semibold leading-6 text-gray-900">Diet Preferences</label>
+        <div class="mt-2.5">
+          <textarea
+            name="diet-preferences"
+            v-model="formData.diet_preferences"
+            id="diet-preferences"
+            rows="3"
+            placeholder="Do you have any diet preferences or restrictions?"
+            class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Medical Conditions or Concerns -->
+      <div class="sm:col-span-2">
+        <label for="medical-conditions" class="block text-sm font-semibold leading-6 text-gray-900">Medical Conditions</label>
+        <div class="mt-2.5">
+          <textarea
+            name="medical-conditions"
+            v-model="formData.additional_questions"
+            id="medical-conditions"
+            rows="3"
+            placeholder="Any medical conditions or concerns we should know about?"
+            class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Preferred Communication Method -->
+      <div>
+        <label for="communication-method" class="block text-sm font-semibold leading-6 text-gray-900">Preferred Communication Method</label>
+        <div class="mt-2.5">
+          <select
+            v-model="formData.preferred_communication_method"
+            name="communication-method"
+            id="communication-method"
+            class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm sm:text-sm sm:leading-6"
+          >
+            <option value="" disabled selected>Select a communication method</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="whatsapp">WhatsApp</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="mt-8 flex justify-end">
+      <button
+        type="submit"
+        :disabled="!isFormEmpty || processing"
+        class="rounded-md bg-indigo-600 disabled:cursor-not-allowed disabled:opacity-25 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+        {{ processing ? 'Processing...' : 'Send Message' }}
+      </button>
+    </div>
+  </div>
+</form>
+
             </div>
         </div>
         <CoreBaseModal :show="showModal" @update:show="showModal = $event">
             <section class="max-w-2xl px-3 py-6 mx-auto">
                 <main class="mt-8 space-y-6">
                     <img class="object-cover w-full h-56 rounded-lg md:h-72"
-                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                        src="@/assets/img/weight9.jpg"
                         alt="">
 
                     <h2 class="mt-6 text-gray-800 font-semibold text-lg">Hello {{
@@ -140,15 +332,12 @@
                         }},</h2>
 
                     <p class="mt-2 leading-loose text-gray-800 text-sm">
-                        Thank you for contacting Buildr! We’re thrilled to hear from you and are eager to learn more
-                        about how we can accelerate your digital journey. A member of our team will be in touch within
-                        the next 24 hours to discuss your needs and how we can help your business innovate and grow. We
-                        look forward to working together to create something amazing.
+                        Thank you for reaching out to Stress-Free Weight Loss with Dr. Ada! We’re excited to connect with you and learn more about your weight loss goals. A member of our team will be in touch within the next 24 hours to discuss how we can support you on your journey to a healthier and happier lifestyle. We look forward to working with you to achieve amazing results!
                     </p>
 
                     <p class="mt-2 text-gray-800 text-sm">
                         Best regards, <br>
-                        The Buildr Team
+                        The SWL Team.
                     </p>
                 </main>
             </section>
@@ -157,18 +346,26 @@
 </template>
 
 <script setup lang="ts">
+  import { useCustomToast } from '@/composables/core/useCustomToast'
+  const { showToast } = useCustomToast();
 const processing = ref(false)
 const formData = ref({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneNumber: '',
-    tell_us_more_about_your_project: ''
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      age: '',
+      gender: '',
+      weight_loss_goal: '',
+      current_activity_level: '',
+      diet_preferences: '',
+      additional_questions: '',
+      preferred_communication_method: '',
 });
 
 async function handleSubmit() {
     processing.value = true
-    const url = 'https://buildr-backend.onrender.com/api/auth/signup';  // Your API endpoint
+    const url = 'https://swl-enquires.onrender.com/api/auth/signup';  // Your API endpoint
     try {
         const response = await fetch(url, {
             method: 'POST',
@@ -179,19 +376,36 @@ async function handleSubmit() {
         });
 
         if (!response.ok) {
+            showToast({
+            title: "Error",
+            message: "Network response was not ok.'",
+            toastType: "error",
+            duration: 3000
+          });
             throw new Error('Network response was not ok.');
         }
 
         const result = await response.json();
         showModal.value = true
         formData.value.firstName = ''
-        formData.value.lastName = ''
-        formData.value.email = ''
-        formData.value.phoneNumber = ''
-        formData.value.tell_us_more_about_your_project = ''
+        formData.value.lastName = '',
+        formData.value.email = '',
+        formData.value.phoneNumber = '',
+        formData.value.age = '',
+        formData.value.gender = '',
+        formData.value.weight_loss_goal = '',
+        formData.value.current_activity_level = '',
+        formData.value.diet_preferences = '',
+        formData.value.additional_questions = '',
+        formData.value.preferred_communication_method = ''
     } catch (error) {
         if (process.client) {
-            useNuxtApp().$toast('Error submitting form');
+            showToast({
+            title: "Error",
+            message: "Error submitting form'",
+            toastType: "error",
+            duration: 3000
+          });
         }
     } finally {
         processing.value = false
@@ -199,7 +413,7 @@ async function handleSubmit() {
 }
 
 const isFormEmpty = computed(() => {
-    return !!(formData.value.firstName && formData.value.lastName && formData.value.email && formData.value.phoneNumber && formData.value.tell_us_more_about_your_project)
+    return !!(formData.value.firstName && formData.value.lastName && formData.value.email && formData.value.phoneNumber && formData.value.age && formData.value.gender && formData.value.age && formData.value.weight_loss_goal && formData.value.current_activity_level && formData.value.diet_preferences && formData.value.additional_questions && formData.value.preferred_communication_method)
 })
 
 const capitalizeFirstLetter = (string: string) => {
@@ -207,17 +421,6 @@ const capitalizeFirstLetter = (string: string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-// nextTick(() => {
-//     if (process.client) {
-//         useNuxtApp().$toast('notify after nextTick');
-//     }
-// });
-
-// const notify = () => {
-//     useNuxtApp().$toast.error('toastify success');
-//     // or
-//     // toast.info('toastify success');
-// };
 
 
 const showModal = ref(false);
