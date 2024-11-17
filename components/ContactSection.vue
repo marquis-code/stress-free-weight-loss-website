@@ -286,7 +286,7 @@
       </div>
 
       <!-- Preferred Communication Method -->
-      <div>
+      <div class="w-full">
         <label for="communication-method" class="block text-sm font-semibold leading-6 text-gray-900">Preferred Communication Method</label>
         <div class="mt-2.5">
           <select
@@ -306,13 +306,24 @@
 
     <!-- Submit Button -->
     <div class="mt-8 flex justify-end w-full">
-      <button
+      <!-- <button
         type="submit"
         :disabled="!isFormEmpty || processing"
         class="rounded-md bg-indigo-600 disabled:cursor-not-allowed w-full disabled:opacity-25 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
       >
         {{ processing ? 'Processing...' : 'Send Message' }}
-      </button>
+      </button> -->
+      <button type="submit" :disabled="!isFormEmpty || processing" class="group disabled:cursor-not-allowed w-full disabled:opacity-25 w-full relative inline-block focus:outline-none focus:ring mt-10" href="#">
+  <span
+    class="absolute inset-0 w-full inset-x-0 translate-x-0 translate-y-0 bg-yellow-300 transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5"
+  ></span>
+
+  <span
+    class="relative inline-block border-2 border-current w-full px-8 py-3 text-sm font-bold uppercase tracking-widest"
+  >
+  {{ processing ? 'Processing...' : 'Send Message' }}
+  </span>
+</button>
     </div>
   </div>
 </form>

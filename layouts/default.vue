@@ -1,0 +1,6 @@
+<template>
+    <CoreSplashScreen />
+    <NuxtPage />
+  </template>
+  
+  

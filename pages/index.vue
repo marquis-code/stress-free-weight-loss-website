@@ -289,9 +289,20 @@
         Stay ahead with actionable insights, exclusive tools, and updates delivered straight to your inbox. Start your transformation today.
       </p>
       <!-- <p class="mx-auto mt-6 max-w-xl text-pretty text-lg/8 text-gray-400">Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.</p> -->
-      <div class="mt-8 flex justify-center">
+      <!-- <div class="mt-8 flex justify-center">
         <a href="#contact-form" class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">Get started</a>
-      </div>
+      </div> -->
+      <a class="group relative inline-block focus:outline-none focus:ring mt-10" href="#contact-form">
+  <span
+    class="absolute inset-0 translate-x-0 translate-y-0 bg-yellow-300 transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5"
+  ></span>
+
+  <span
+    class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest"
+  >
+  Get started
+  </span>
+</a>
     </div>
     <div class="mt-24 border-t border-white/10 pt-12 xl:grid xl:grid-cols-3 xl:gap-8">
       <img class="h-20" src="@/assets/logo.png" alt="Company name">

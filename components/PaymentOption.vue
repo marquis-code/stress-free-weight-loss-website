@@ -25,10 +25,21 @@
         </div>
 
         <footer class="mb-10 flex justify-center">
-            <button @click="router.push('/questionaire')" class="flex items-baseline gap-2 rounded-lg bg-[#FE5401] px-4 py-2.5 text-xl font-bold text-white hover:bg-[#FF7308]">
+            <!-- <button @click="router.push('/questionaire')" class="flex items-baseline gap-2 rounded-lg bg-[#FE5401] px-4 py-2.5 text-xl font-bold text-white hover:bg-[#FF7308]">
                 <span>Start</span>
                 <i class="fas fa-hand-peace text-xl"></i>
-            </button>
+            </button> -->
+            <NuxtLink to="/questionaire" class="group relative inline-block focus:outline-none focus:ring mt-10">
+  <span
+    class="absolute inset-0 translate-x-0 translate-y-0 bg-yellow-300 transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5"
+  ></span>
+
+  <span
+    class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest"
+  >
+  Get started
+  </span>
+</NuxtLink>
         </footer>
     </div>
 </main>
@@ -49,10 +60,21 @@
         </div>
 
         <footer class="mb-10 flex justify-center">
-            <button @click="router.push('/questionaire')" class="flex items-baseline gap-2 rounded-lg bg-[#FE5401] px-4 py-2.5 text-xl font-bold text-white hover:bg-[#FF7308]">
+            <!-- <button @click="router.push('/questionaire')" class="flex items-baseline gap-2 rounded-lg bg-[#FE5401] px-4 py-2.5 text-xl font-bold text-white hover:bg-[#FF7308]">
                 <span>Start</span>
                 <i class="fas fa-hand-peace text-xl"></i>
-            </button>
+            </button> -->
+            <NuxtLink to="/questionaire" class="group relative inline-block focus:outline-none focus:ring mt-10">
+  <span
+    class="absolute inset-0 translate-x-0 translate-y-0 bg-yellow-300 transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5"
+  ></span>
+
+  <span
+    class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest"
+  >
+  Get started
+  </span>
+</NuxtLink>
         </footer>
     </div>
 </main>
@@ -73,10 +95,21 @@
         </div>
 
         <footer class="mb-10 flex justify-center">
-            <button @click="router.push('/questionaire')" class="flex items-baseline gap-2 rounded-lg bg-[#FE5401] px-4 py-2.5 text-xl font-bold text-white hover:bg-[#FF7308]">
+            <!-- <button @click="router.push('/questionaire')" class="flex items-baseline gap-2 rounded-lg bg-[#FE5401] px-4 py-2.5 text-xl font-bold text-white hover:bg-[#FF7308]">
                 <span>Start</span>
                 <i class="fas fa-hand-peace text-xl"></i>
-            </button>
+            </button> -->
+            <NuxtLink to="/questionaire" class="group relative inline-block focus:outline-none focus:ring mt-10">
+  <span
+    class="absolute inset-0 translate-x-0 translate-y-0 bg-yellow-300 transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5"
+  ></span>
+
+  <span
+    class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest"
+  >
+  Get started
+  </span>
+</NuxtLink>
         </footer>
     </div>
 </main>
