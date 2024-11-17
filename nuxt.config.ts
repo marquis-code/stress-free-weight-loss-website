@@ -450,7 +450,7 @@ export default {
       mobileAppIOS: false
     },
   },
-  css: ["/assets/css/main.css"],
+  css: ["/assets/css/main.css", '@/assets/css/custom.css'],
   dir: {
     static: 'public', // Ensure the  folder is treated as static
   },

@@ -12,7 +12,7 @@
     </svg>
 
     <p class="absolute right-3 top-5">
-      <img src="@/assets/wema-logo1.jpeg" alt="" class="h-10 w-auto" />
+      <img src="@/assets/icon/zenith-bank-logo.svg" alt="" class="h-10 w-auto" />
     </p>
     <svg viewBox="0 0 220 192" width="220" height="192" fill="none" class="absolute -right-20 -bottom-32 text-blue-900 opacity-50">
       <defs>
@@ -57,7 +57,7 @@
       <span>NGN 50,000</span>
     </div>
     <div class="absolute bottom-6 left-8 text-gray-200 font-semibold text-xl uppercase">
-      <span class="text-xs">Stress Free Weight Loss</span>
+      <span class="text-xs">PAMPACE NIGERIA LTD </span>
     </div>
   </div>
 </div>
@@ -68,7 +68,7 @@ import { useClipboard } from '@/composables/core/useClipboard';
 import { useCustomToast } from '@/composables/core/useCustomToast'
 const { showToast } = useCustomToast();
 
-const accountNumber = ref('023 7858 301');
+const accountNumber = ref('1218646895');
 const { copyToClipboard } = useClipboard();
 
 const copyPhoneNumber = () => {
