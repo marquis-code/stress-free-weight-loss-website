@@ -305,11 +305,11 @@
     </div>
 
     <!-- Submit Button -->
-    <div class="mt-8 flex justify-end">
+    <div class="mt-8 flex justify-end w-full">
       <button
         type="submit"
         :disabled="!isFormEmpty || processing"
-        class="rounded-md bg-indigo-600 disabled:cursor-not-allowed disabled:opacity-25 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        class="rounded-md bg-indigo-600 disabled:cursor-not-allowed w-full disabled:opacity-25 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
       >
         {{ processing ? 'Processing...' : 'Send Message' }}
       </button>

@@ -1,18 +1,18 @@
 <template>
     <main>
-        <div class="bg-white py-20">
+        <div class="bg-white py-16">
             <div class="mx-auto max-w-7xl px-6 py-10 sm:pt-10 lg:px-8 lg:py-10">
                 <div class="lg:grid lg:grid-cols-12 lg:gap-8">
                     <div class="lg:col-span-5" data-aos="fade-up">
                         <h2 class="text-2xl font-bold leading-10 tracking-tight">Frequently asked questions</h2>
-                        <p class="mt-6 max-w-2xl text-base leading-7 text-gray-300">Have a different question and can’t find the answer you’re looking for? Reach out to our support team by <a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">sending us an email</a> and we’ll get back to you as soon as we can.</p>
+                        <p class="mt-6 max-w-2xl text-base leading-7 text-gray-800">Have a different question and can’t find the answer you’re looking for? Reach out to our support team by <a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">sending us an email</a> and we’ll get back to you as soon as we can.</p>
                     </div>
                     <div class="lg:col-span-7 lg:mt-0 space-y-8 pt-6 md:pt-0" data-aos="fade-up">
                         <div v-for="item in faqs" :key="item.id" class="overflow-hidden border-b">
                             <button
                                 class="w-full text-left py-2 transition-colors duration-300 flex justify-between items-center pb-9"
                                 @click="toggle(item.id)">
-                                <p class="text-gray-800 font-semibold text-sm md:text-lg">
+                                <p class="text-gray-800 font-semibold text-base md:text-lg">
                                     {{ item.question }}
                                 </p>
                                 <span class="relative h-5 w-5 shrink-0">

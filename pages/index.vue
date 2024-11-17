@@ -71,10 +71,25 @@
           <h1 data-aos="fade-up" class="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">Lose Weight Stress-Free with SWL Coaching
           </h1>
           <p data-aos="fade-up" class="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">Discover a stress-free and healthy approach to weight loss with our personalized coaching program. Achieve your weight loss goals and maintain a healthy lifestyle for life.</p>
-          <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a href="#coaching-options" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
-            <!-- <a href="#" class="text-sm/6 font-semibold text-gray-900">Sign up<span aria-hidden="true">→</span></a> -->
-          </div>
+          <!-- <div class="mt-10 flex items-center justify-center gap-x-6 w-6/12 max-w-2xl flex justify-center items-center">
+            <a href="#coaching-options" class="rounded-md block bg-indigo-600 px-6 w-6/12 max-w-2xl py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+          </div> -->
+          <!-- Base -->
+
+
+<!-- Hover -->
+
+<a class="group relative inline-block focus:outline-none focus:ring mt-10" href="#">
+  <span
+    class="absolute inset-0 translate-x-0 translate-y-0 bg-yellow-300 transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5"
+  ></span>
+
+  <span
+    class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest"
+  >
+  Get started
+  </span>
+</a>
         </div>
         <div data-aos="fade-up" class="mt-16 flow-root sm:mt-24">
           <div class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
