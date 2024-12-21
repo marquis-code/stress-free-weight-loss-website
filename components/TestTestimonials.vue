@@ -35,25 +35,25 @@
   // List of testimonials with random text, images, and author details
   const testimonials = ref([
     {
-      text: "It went well. I did not have a reason to be concerned or worried even the journey was a long one. The driver was polite and careful with his driving.",
+      text: "Thank you so much for for adding me. i appreciate you for a job welldone. In making me loose 20kg in  4 1/2 months.",
       name: "Halimah",
       position: "CEO of Workcation",
       image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"
     },
     {
-      text: "I had a great time riding with Nextride, The driver arrived on time and he was thoroughly professional throughout the journey. Thank you. Looking forward to using Nextride again :)",
+      text: "Thank you so much Dr Ada. I started the coaching program in 120kg and in 4 months i have lost 18kg. i went to get new clothes today and it fits pefectly.",
       name: "Jamiu",
       position: "Manager at TechWorld",
       image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"
     },
     {
-      text: "I Had a seamless ride with Nextride, even though I had to delay the driver a bit he patiently waited for me and he was very polite and friendly, the car was clean and comfortable which made my trip awesome.",
+      text: "Thank you so much Dr Ada i started the weight loss program with 110kg and today am currently on 102.5kg. Looking forward to loosing more weight.Thank you you  so much Dr Ada.",
       name: "Nura",
       position: "Designer at CreativeStudio",
       image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"
     },
     {
-      text: "Nextride provided a smooth journey. Despite a slight delay on my end, the driver patiently waited, displaying politeness and friendliness. The clean and comfortable car added to the overall awesomeness of my trip.",
+      text: "I was so happy when i saw i'm now weighing 75kg. My trousers and clothes fit better and i no longer feel unnecessarily hungry. i have some Kgs to go, i won't stop until i hit my goal.",
       name: "Doyin",
       position: "Designer at CreativeStudio",
       image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"

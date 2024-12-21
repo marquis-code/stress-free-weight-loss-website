@@ -26,7 +26,7 @@
 
                         <div>
                             <p class="text-center text-2xl font-extrabold text-gray-900">Basic Plan</p>
-                            <p class="text-center text-2xl font-extrabold text-[#FE5401]">₦ 140,000</p>
+                            <p class="text-center text-2xl font-extrabold text-[#FE5401]">₦ 139,000</p>
                         </div>
 
                         <ul class="list-disc pl-5 text-sm space-y-2 text-gray-700">
@@ -68,12 +68,12 @@
                             <p
                                 class="text-center text-2xl font-extrabold text-gray-900"
                             >Premium Plan</p>
-                            <p class="text-center text-2xl font-extrabold text-[#FE5401]">₦ 280,000</p>
+                            <p class="text-center text-2xl font-extrabold text-[#FE5401]">₦ 339,000</p>
                         </div>
 
                         <ul class="list-disc pl-5 text-sm space-y-2 text-gray-700">
                             <li>Basic plan plus</li>
-                            <li>Diettrictial consultation with personalized meal plan</li>
+                            <li>Dietician consultation with personalized meal plan</li>
                             <li>Weight loss Surgical Consultation</li>
                             <li>Medical Weight Loss consultation</li>
                             <li>Weely Online Fitness coaching</li>

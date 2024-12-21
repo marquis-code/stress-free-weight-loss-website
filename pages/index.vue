@@ -138,7 +138,7 @@
 
 <FrequentlyAskedQuestions data-aos="fade-up" />
 
-
+<!-- <TestimonialCarousel /> -->
 <TestTestimonials data-aos="fade-up" id="testimonials" />
 <ContactSection data-aos="fade-up" id="contact-form"/>
 
@@ -403,5 +403,6 @@
 </template>
 
 <script setup lang="ts">
+import TestimonialCarousel from "../components/TestimonialCarousel.vue";
 const isOpen = ref(false)
 </script>
