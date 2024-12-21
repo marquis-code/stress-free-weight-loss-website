@@ -714,7 +714,7 @@ const addMeal = () => {
         
         <!-- Activities Section -->
         <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-sm font-semibold mb-6">Record Activity</h2>
+          <h2 class="text-lg font-semibold mb-6">Record Activity</h2>
           
           <form @submit.prevent="addActivity" class="space-y-6">
             <div>
@@ -775,7 +775,7 @@ const addMeal = () => {
   
         <!-- Meals Section -->
         <div class="bg-white rounded-lg shadow-md p-6">
-          <h2 class="text-sm font-semibold mb-6">Record Meal</h2>
+          <h2 class="text-lg font-semibold mb-6">Record Meal</h2>
           
           <form @submit.prevent="addMeal" class="space-y-6">
             <div>
@@ -837,7 +837,7 @@ const addMeal = () => {
         <!-- Summary Section -->
         <div class="mt-8 space-y-6">
           <div v-if="activities.length > 0" class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-semibold mb-4">Recorded Activities</h3>
+            <h3 class="text-lg font-semibold mb-4">Recorded Activities</h3>
             <ul class="space-y-4">
               <li v-for="(activity, index) in activities" :key="activity.timestamp.toString()" class="border-b pb-4">
                 <div class="flex justify-between items-start">
@@ -849,13 +849,14 @@ const addMeal = () => {
                     @click="deleteActivity(index)"
                     class="text-red-600 hover:text-red-800"
                   >
-                    Delete
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#d0021b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
                   </button>
                 </div>
                 <div v-if="activity.image || activity.video" class="mt-2">
                     <!-- {{ activity }} -->
+                    <img v-if="!activity?.image?.length" class="h-44 w-full" src="@/assets/icon/no-image.svg" />
                   <img
-                    v-if="activity.image"
+                    v-if="activity?.image?.length"
                     :src="activity.image.preview"
                     class="w-full max-w-md h-48 object-cover rounded"
                     alt="Activity image"
@@ -874,7 +875,7 @@ const addMeal = () => {
           <div v-if="meals.length > 0" class="bg-white rounded-lg shadow-md p-6">
             <h3 class="text-xl font-semibold mb-4">Recorded Meals</h3>
             <ul class="space-y-4">
-              <li v-for="(meal, index) in meals" :key="meal.timestamp.toString()" class="border-b pb-4">
+              <li v-for="(meal, index) in meals" :key="meal.timestamp.toString()" class="border order-gray-200 pb-4">
                 <div class="flex justify-between items-start">
                   <div>
                     <h4 class="font-medium">{{ meal.name }}</h4>
@@ -888,12 +889,14 @@ const addMeal = () => {
                   </button>
                 </div>
                 <div v-if="meal.image || meal.video" class="mt-2">
+                    <img v-if="!meal?.image?.length" class="h-44 w-full" src="@/assets/icon/no-image.svg" />
                   <img
-                    v-if="meal.image"
+                    v-if="meal?.image?.length"
                     :src="meal.image.preview"
                     class="w-full max-w-md h-48 object-cover rounded"
                     alt="Meal image"
                   />
+                  <!-- <img class="w-full max-w-md h-48 object-cover rounded" v-else src="@/assets/icon/no-image.svg" /> -->
                   <video
                     v-if="meal.video"
                     :src="meal.video.preview"

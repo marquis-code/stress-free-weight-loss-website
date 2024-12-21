@@ -5,7 +5,7 @@
   
     <div class="fixed inset-0 overflow-hidden">
       <div class="absolute inset-0 overflow-hidden">
-        <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
+        <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full lg:pl-10 sm:pl-16">
           <!--
             Slide-over panel, show/hide based on slide-over state.
   
@@ -23,6 +23,10 @@
                 <div class="bg-gray-50 px-4 py-6 sm:px-6">
                   <div class="flex items-start justify-between space-x-3">
                     <slot name="header"></slot>
+                    <button @click="emit('close')" type="button" class="relative border rounded-full bg-white p-1 text-gray-400 hover:text-gray-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                      </button>
+                    
                     <!-- <div class="space-y-1">
                       <h2 class="text-base font-semibold text-gray-900" id="slide-over-title">New Activity</h2>
                       <p class="text-sm text-gray-500">Get started by filling in the information below to create your new project.</p>
@@ -44,12 +48,12 @@
               </div>
   
               <!-- Action buttons -->
-              <div class="shrink-0 border-t border-gray-200 px-4 py-5 sm:px-6">
+              <!-- <div class="shrink-0 border-t border-gray-200 px-4 py-5 sm:px-6">
                 <div class="flex justify-end space-x-3">
                   <button type="button" class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Cancel</button>
                   <button type="submit" class="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create</button>
                 </div>
-              </div>
+              </div> -->
             </form>
           </div>
         </div>

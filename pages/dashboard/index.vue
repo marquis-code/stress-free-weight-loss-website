@@ -1,7 +1,7 @@
 <template>
  <main>
 	<div class="h-screen w-full flex overflow-hidden select-none">
-		<nav class="w-24 flex flex-col items-center bg-white dark:bg-gray-800 py-4">
+		<nav class="w-24 hidden lg:flex flex-col items-center bg-white dark:bg-gray-800 py-4">
 			<!-- Left side NavBar -->
 
 			<div>
@@ -139,7 +139,7 @@
 
 		</nav>
 		<main
-			class="my-1 pt-2 pb-2 px-6 lg:px-10 flex-1 bg-gray-200 dark:bg-black rounded-l-lg
+			class="my-1 pt-2 pb-2 px-3 lg:px-10 flex-1 -mt-10 bg-gray-200 dark:bg-black
 			transition duration-500 ease-in-out overflow-y-auto">
 			<div class="flex flex-col capitalize text-3xl">
 				<span class="font-semibold">hello,</span>
@@ -156,7 +156,7 @@
 						class="flex items-center pt-1 pb-1 px-8 text-lg font-semibold
 						capitalize dark:text-gray-300">
 						<!-- Header -->
-						<span>Your Weight Loss Tips For Today</span>
+						<span>Weight Loss Tips For Today</span>
 						<button class="ml-2">
 							<svg class="h-5 w-5 fill-current" viewBox="0 0 256 512">
 								<path
@@ -309,10 +309,9 @@
 					class="lg:mr-6 lg:w-1/2 mt-8 py-2 flex-shrink-0 flex flex-col
 					bg-purple-300 rounded-lg text-white">
 
-					<h3
+					<!-- <h3
 						class="flex items-center pt-1 pb-1 px-8 text-lg font-bold
 						capitalize">
-						<!-- Header -->
 						<span>scheduled lessons</span>
 						<button class="ml-2">
 							<svg class="h-5 w-5 fill-current" viewBox="0 0 256 512">
@@ -324,17 +323,17 @@
 									136c9.5 9.4 9.5 24.6.1 34z"></path>
 							</svg>
 						</button>
-					</h3>
+					</h3> -->
 
 					<div class="flex flex-col items-center mt-12">
 						<img
 							src="https://cdni.iconscout.com/illustration/premium/thumb/empty-state-2130362-1800926.png"
 							alt=" empty schedule" />
 
-						<span class="font-bold mt-8">Your schedule is empty</span>
+						<span class="font-bold mt-8">Your activity is empty</span>
 
 						<span class="text-purple-500">
-							Make your first appointment
+							Make your first activity
 						</span>
 
 						<button @click="showActivityModal = true" class="mt-8 bg-purple-800 rounded-lg py-2 px-4">
@@ -349,7 +348,7 @@
 		</main>
 
 		<aside
-			class="w-1/4 my-1 mr-1 px-6 py-4 lg:flex flex-col hidden bg-gray-200 dark:bg-black
+			class="w-1/4 lg:mr-1 px-6 py-4 lg:flex flex-col hidden bg-gray-200 dark:bg-black
 			dark:text-gray-400 rounded-r-lg overflow-y-auto">
 			<!-- Right side NavBar -->
 
@@ -525,11 +524,11 @@
 		</aside>
 
 	</div>
-	<CoreDrawer :show="showActivityModal">
+	<CoreDrawer @close="showActivityModal = false" :show="showActivityModal">
 		<template #header>
 			<div class="space-y-1">
-                      <h2 class="text-base font-semibold text-gray-900" id="slide-over-title">Weight Loss Activity Tracker</h2>
-                      <p class="text-sm text-gray-500">Get started by filling in the information below to create your new project.</p>
+                      <h2 class="text-lg font-semibold text-gray-900" id="slide-over-title">Weight Loss Activity Tracker</h2>
+                      <p class="text-sm text-gray-500">Get started by filling in the information below to create your activity.</p>
                     </div> 
 		</template>
         <template #content>
