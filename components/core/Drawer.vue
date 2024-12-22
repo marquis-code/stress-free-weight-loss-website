@@ -1,5 +1,5 @@
 <template>
-    <div v-if="show" class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+    <div v-if="show" class="relative z-50" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
     <!-- Background backdrop, show/hide based on slide-over state. -->
     <div class="fixed inset-0 bg-gray-500/75 transition-opacity" aria-hidden="true"></div>
   
@@ -22,10 +22,12 @@
                 <!-- Header -->
                 <div class="bg-gray-50 px-4 py-6 sm:px-6">
                   <div class="flex items-start justify-between space-x-3">
+                  <div class="flex justify-between  w-full">
                     <slot name="header"></slot>
-                    <button @click="emit('close')" type="button" class="relative border rounded-full bg-white p-1 text-gray-400 hover:text-gray-500">
+                    <button @click="emit('close')" type="button" class="relative">
                         <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                       </button>
+                  </div>
                     
                     <!-- <div class="space-y-1">
                       <h2 class="text-base font-semibold text-gray-900" id="slide-over-title">New Activity</h2>

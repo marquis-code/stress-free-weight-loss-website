@@ -10,7 +10,7 @@ const credential = {
   password: ref(""),
 };
 
-export const useLogin = () => {
+export const useAdminLogin = () => {
   const router = useRouter();
   const loading = ref(false);
 
@@ -23,7 +23,7 @@ export const useLogin = () => {
   const login = async () => {
     loading.value = true;
     try {
-      const res = await auth_api.$_login({
+      const res = await auth_api.$_admin_login({
         email: credential?.email?.value?.toLowerCase(),
         password: credential.password.value,
       });
@@ -34,11 +34,11 @@ export const useLogin = () => {
         useUser().createUser(res.data);
         showToast({
           title: "Success",
-          message: "Login was successful!",
+          message: "Admin Login was successful!",
           toastType: "success",
           duration: 3000
         });
-        router.push("/dashboard");
+        router.push("/admin/dashboard");
         window.location.href = "/dashboard"
       }
 
@@ -50,7 +50,6 @@ export const useLogin = () => {
         duration: 3000
       });
     } finally {
-      router.push("/dashboard");
       loading.value = false;
     }
   };

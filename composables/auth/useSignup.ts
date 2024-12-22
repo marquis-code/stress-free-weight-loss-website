@@ -34,7 +34,11 @@ export const useSignup = () => {
             duration: 3000,
           });
           router.push('/login')
+      } else {
+        router.push('/login')
       }
+      loading.value = false
+      router.push('/login')
     // try {
     //   const res = await auth_api.$_signup(
     //     {

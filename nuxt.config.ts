@@ -135,6 +135,9 @@ export default {
   loadingIndicator: false, // Completely removes the default Nuxt loading screen
 
   modules: ["@vite-pwa/nuxt", "@nuxtjs/tailwindcss"],
+  build: {
+    transpile: ['recharts','chart.js']
+  },
   tailwindcss: {
     cssPath: "@/assets/css/main.css",
   },
@@ -212,7 +215,7 @@ export default {
       mobileAppIOS: false
     },
   },
-  css: ["/assets/css/main.css", '@/assets/css/custom.css'],
+  css: ["@/assets/css/main.css", '@/assets/css/custom.css'],
   dir: {
     static: 'public', // Ensure the  folder is treated as static
   },

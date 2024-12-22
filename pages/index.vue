@@ -118,7 +118,7 @@
   </div>
 </div>
 
-<QuestionBubbles data-aos="fade-up" />
+<!-- <QuestionBubbles data-aos="fade-up" /> -->
 
  <DesignedHero data-aos="fade-up" id="services" />
 
@@ -139,7 +139,8 @@
 <FrequentlyAskedQuestions data-aos="fade-up" />
 
 <!-- <TestimonialCarousel /> -->
-<TestTestimonials data-aos="fade-up" id="testimonials" />
+<!-- <TestTestimonials data-aos="fade-up" id="testimonials" /> -->
+<TestimonialsScroll />
 <ContactSection data-aos="fade-up" id="contact-form"/>
 
 <div data-aos="fade-up" class="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">

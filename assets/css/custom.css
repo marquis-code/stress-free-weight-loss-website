@@ -1,4 +1,4 @@
-/* assets/css/custom.css */
+
 .input-field {
     @apply w-full px-4 py-4  bg-[#F4F5F7] outline-none border-[0.5px] border-[#F4F5F7] rounded-md focus:outline-none focus:border-green-500 transition;
   }

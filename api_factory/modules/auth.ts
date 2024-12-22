@@ -24,4 +24,8 @@ export const auth_api = {
 		const url = '/admins/password'
 		return GATEWAY_ENDPOINT.put(url, payload);
 	},
+	$_admin_login: (credential: any) => {
+		const url = '/auth/admin-login'
+		return GATEWAY_ENDPOINT.post(url, credential)
+	},
 }
