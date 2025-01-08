@@ -160,9 +160,11 @@
 							Make your first activity
 						</span>
 
+					<div class="pb-3">
 						<button @click="showActivityModal = true" class="mt-8 bg-purple-800 rounded-lg py-2 px-4">
 							Create Activity
 						</button>
+					</div>
 
 					</div>
 				</div>

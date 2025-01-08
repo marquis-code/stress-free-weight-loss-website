@@ -1,619 +1,304 @@
-<!-- <template>
-    <div class="min-h-screen bg-gray-50">
-      <div class="max-w-4xl mx-auto px-4">
-        
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-lg font-semibold mb-6">Record Activity</h2>
-          
-          <form @submit.prevent="addActivity" class="space-y-6">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                Activity Name
-              </label>
-              <input
-                v-model="activityForm.name"
-                type="text"
-                required
-                class="w-full px-3 outline-none py-3.5 border border-gray-300 rounded-lg"
-              />
-            </div>
-  
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                Activity Capture
-              </label>
 
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Select Camera</label>
-                <select v-model="selectedCamera" @change="changeCamera" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
-                  <option v-for="device in videoDevices" :key="device.deviceId" :value="device.deviceId">
-                    {{ device.label || `Camera ${device.deviceId}` }}
-                  </option>
-                </select>
-              </div>
 
-              <CoreMediaCapture
-                  :cameraId="selectedCamera"
-                  @capture="handleCapture"
-                  @save="handleSave"
-                  @cancel="resetForm"
-                />
-            </div>
-  
-            <div v-if="activityForm.media" class="mt-4">
-              <h4 class="text-sm font-medium text-gray-700 mb-2">Preview:</h4>
-              <div class="relative">
-                <img
-                  v-if="activityForm.media.type === 'image'"
-                  :src="activityForm.media.preview"
-                  class="w-full max-w-md h-48 object-cover rounded"
-                  alt="Activity preview"
-                />
-                <video
-                  v-if="activityForm.media.type === 'video'"
-                  :src="activityForm.media.preview"
-                  controls
-                  class="w-full max-w-md h-48 object-cover rounded"
-                ></video>
-              </div>
-            </div>
-  
-            <button
-              type="submit"
-              :disabled="!canSubmitActivity"
-              :class="[
-                'w-full px-4 py-3.5 rounded-lg transition',
-                canSubmitActivity 
-                  ? 'bg-blue-600 text-white hover:bg-blue-700' 
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-              ]"
-            >
-              Add Activity
-            </button>
-          </form>
+<template>
+  <div class="lg:p-6">
+
+    <div class="w-full bg-white border-[0.5px] border-gray-100 rounded-lg mb-6"> 
+<div class="flex justify-between items-center border-b border-[0.5px] border-gray-50 px-4 py-4">
+      <h2 class="text- font-medium">Add Meals</h2>
+ <div>
+  <button
+        type="button"
+        class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 flex items-center gap-x-3 text-sm"
+        @click="addMeal"
+      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        Add Meal
+      </button>
+ </div>
+</div>
+      <div v-for="(meal, index) in meals" :key="index" class="mb-4 p-4">
+        <label class="block text-xs font-medium mb-2">Meal Name</label>
+        <input
+          v-model="meal.name"
+          type="text"
+          placeholder="Enter meal name"
+          class="w-full px-3 py-3 text-sm bg-gray-100 w-full outline-none border-[0.5px] border-gray-100 rounded mb-2"
+        />
+        <div v-if="meal.image" class="mb-2">
+          <img :src="meal.image" alt="Meal" class="w-40 h-40 object-cover rounded" />
         </div>
-  
-        <div class="bg-white rounded-lg shadow-md p-6">
-          <h2 class="text-lg font-semibold mb-6">Record Meal</h2>
-          
-          <form @submit.prevent="addMeal" class="space-y-6">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                Meal Name
-              </label>
-              <input
-                v-model="mealForm.name"
-                type="text"
-                required
-                class="w-full px-3 py-3.5 outline-none border border-gray-300 rounded-lg"
-              />
-            </div>
-  
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                Meal Capture
-              </label>
-              <CoreMediaCapture
-                @capture="handleMealCapture"
-                @save="handleMealSave"
-                @cancel="resetMealForm"
-              />
-            </div>
-  
-            <div v-if="mealForm.media" class="mt-4">
-              <h4 class="text-sm font-medium text-gray-700 mb-2">Preview:</h4>
-              <div class="relative">
-                <img
-                  v-if="mealForm.media.type === 'image'"
-                  :src="mealForm.media.preview"
-                  class="w-full max-w-md h-48 object-cover rounded"
-                  alt="Meal preview"
-                />
-                <video
-                  v-if="mealForm.media.type === 'video'"
-                  :src="mealForm.media.preview"
-                  controls
-                  class="w-full max-w-md h-48 object-cover rounded"
-                ></video>
-              </div>
-            </div>
-  
-            <button
-              type="submit"
-              :disabled="!canSubmitMeal"
-              :class="[
-                'w-full px-4 py-3.5 rounded-lg transition',
-                canSubmitMeal 
-                  ? 'bg-blue-600 text-white hover:bg-blue-700' 
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-              ]"
-            >
-              Add Meal
-            </button>
-          </form>
-        </div>
-  
-        <div class="mt-8 space-y-6">
-          <div v-if="activities.length > 0" class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-lg font-semibold mb-4">Recorded Activities</h3>
-            <ul class="space-y-4">
-              <li v-for="(activity, index) in activities" :key="activity.timestamp.toString()" class="border-b pb-4">
-                <div class="flex justify-between items-start">
-                  <div>
-                    <h4 class="font-medium">{{ activity.name }}</h4>
-                    <p class="text-sm text-gray-600">{{ formatDate(activity.timestamp) }}</p>
-                  </div>
-                  <button 
-                    @click="deleteActivity(index)"
-                    class="text-red-600 hover:text-red-800"
-                  >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#d0021b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-                  </button>
-                </div>
-                <div v-if="activity.image || activity.video" class="mt-2">
-                    <img v-if="!activity?.image?.length" class="h-44 w-full" src="@/assets/icon/no-image.svg" />
-                  <img
-                    v-if="activity?.image?.length"
-                    :src="activity.image.preview"
-                    class="w-full max-w-md h-48 object-cover rounded"
-                    alt="Activity image"
-                  />
-                  <video
-                    v-if="activity.video"
-                    :src="activity.video.preview"
-                    controls
-                    class="w-full max-w-md h-48 object-cover rounded"
-                  ></video>
-                </div>
-              </li>
-            </ul>
-          </div>
-  
-          <div v-if="meals.length > 0" class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-semibold mb-4">Recorded Meals</h3>
-            <ul class="space-y-4">
-              <li v-for="(meal, index) in meals" :key="meal.timestamp.toString()" class="border order-gray-200 pb-4">
-                <div class="flex justify-between items-start">
-                  <div>
-                    <h4 class="font-medium">{{ meal.name }}</h4>
-                    <p class="text-sm text-gray-600">{{ formatDate(meal.timestamp) }}</p>
-                  </div>
-                  <button 
-                    @click="deleteMeal(index)"
-                    class="text-red-600 hover:text-red-800"
-                  >
-                    Delete
-                  </button>
-                </div>
-                <div v-if="meal.image || meal.video" class="mt-2">
-                    <img v-if="!meal?.image?.length" class="h-44 w-full" src="@/assets/icon/no-image.svg" />
-                  <img
-                    v-if="meal?.image?.length"
-                    :src="meal.image.preview"
-                    class="w-full max-w-md h-48 object-cover rounded"
-                    alt="Meal image"
-                  />
-                  <video
-                    v-if="meal.video"
-                    :src="meal.video.preview"
-                    controls
-                    class="w-full max-w-md h-48 object-cover rounded"
-                  ></video>
-                </div>
-              </li>
-            </ul>
-          </div>
-  
-          <button
-            v-if="activities.length > 0 || meals.length > 0"
-            @click="saveData"
-            class="w-full px-4 py-3.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
-          >
-            Save All Data
-          </button>
-        </div>
+        <button
+          type="button"
+          class="flex items-center text-sm border-[0.5px] mt-2 text-white rounded-lg gap-x-3 p-2 px-3 bg-black"
+          @click="openCamera('meal', index)"
+        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(2 3)"><path d="M20 16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3l2-3h6l2 3h3a2 2 0 0 1 2 2v11z"/><circle cx="10" cy="10" r="4"/></g></svg>
+        Add Photo
+        </button>
       </div>
     </div>
-  </template>
-  
-  <script setup lang="ts">
-  import { ref, computed } from 'vue';
-  
-  interface MediaFile {
-    preview: string;
-    file: File;
-    type: 'image' | 'video';
-  }
-  
-  interface Activity {
-    name: string;
-    image: MediaFile | null;
-    video: MediaFile | null;
-    timestamp: Date;
-  }
-  
-  interface Meal {
-    name: string;
-    image: MediaFile | null;
-    video: MediaFile | null;
-    timestamp: Date;
-  }
 
-  // Selected camera ID
-const selectedCamera = ref('');
-const videoDevices = ref<MediaDeviceInfo[]>([]);
-
-const getCameras = async () => {
-  try {
-    const devices = await navigator.mediaDevices.enumerateDevices();
-    videoDevices.value = devices.filter((device) => device.kind === 'videoinput');
-    if (videoDevices.value.length > 0) {
-      selectedCamera.value = videoDevices.value[0].deviceId; // Default to the first camera
-    }
-  } catch (error) {
-    console.error('Error fetching cameras:', error);
-  }
-};
-
-const changeCamera = () => {
-  console.log('Selected Camera ID:', selectedCamera.value);
-};
-
-// This function can be connected to CoreMediaCapture
-const handleCapture = (media) => {
-  console.log('Captured media:', media);
-};
-
-const handleSave = (media) => {
-  console.log('Saved media:', media);
-};
-
-const resetForm = () => {
-  console.log('Form reset');
-};
-
-onMounted(() => {
-  getCameras();
-});
-  
-  const activities = ref<Activity[]>([]);
-  const meals = ref<Meal[]>([]);
-  
-  const activityForm = ref({
-    name: '',
-    media: null as MediaFile | null
-  });
-  
-  const mealForm = ref({
-    name: '',
-    media: null as MediaFile | null
-  });
-  
-  const canSubmitActivity = computed(() => 
-    activityForm.value.name.trim() && activityForm.value.media
-  );
-  
-  const canSubmitMeal = computed(() => 
-    mealForm.value.name.trim() && mealForm.value.media
-  );
-  
-  const handleActivityCapture = (media: MediaFile) => {
-    activityForm.value.media = {
-      preview: URL.createObjectURL(media.file),
-      file: media.file,
-      type: media.file.type.startsWith('video/') ? 'video' : 'image'
-    };
-  };
-  
-  const handleActivitySave = (media: MediaFile) => {
-    activityForm.value.media = {
-      preview: URL.createObjectURL(media.file),
-      file: media.file,
-      type: media.file.type.startsWith('video/') ? 'video' : 'image'
-    };
-  };
-  
-  const handleMealCapture = (media: MediaFile) => {
-    mealForm.value.media = {
-      preview: URL.createObjectURL(media.file),
-      file: media.file,
-      type: media.file.type.startsWith('video/') ? 'video' : 'image'
-    };
-  };
-  
-  const handleMealSave = (media: MediaFile) => {
-    mealForm.value.media = {
-      preview: URL.createObjectURL(media.file),
-      file: media.file,
-      type: media.file.type.startsWith('video/') ? 'video' : 'image'
-    };
-  };
-  
-  const resetActivityForm = () => {
-    if (activityForm.value.media?.preview) {
-      URL.revokeObjectURL(activityForm.value.media.preview);
-    }
-    activityForm.value = {
-      name: '',
-      media: null
-    };
-  };
-  
-  const resetMealForm = () => {
-    if (mealForm.value.media?.preview) {
-      URL.revokeObjectURL(mealForm.value.media.preview);
-    }
-    mealForm.value = {
-      name: '',
-      media: null
-    };
-  };
-  
-  const addActivity = () => {
-    if (!canSubmitActivity.value || !activityForm.value.media) return;
-  
-    activities.value.push({
-      name: activityForm.value.name,
-      image: activityForm.value.media.type === 'image' ? activityForm.value.media : null,
-      video: activityForm.value.media.type === 'video' ? activityForm.value.media : null,
-      timestamp: new Date()
-    });
-  
-    resetActivityForm();
-  };
-  
-  const addMeal = () => {
-    if (!canSubmitMeal.value || !mealForm.value.media) return;
-  
-    meals.value.push({
-      name: mealForm.value.name,
-      image: mealForm.value.media.type === 'image' ? mealForm.value.media : null,
-      video: mealForm.value.media.type === 'video' ? mealForm.value.media : null,
-      timestamp: new Date()
-    });
-  
-    resetMealForm();
-  };
-  
-  const deleteActivity = (index: number) => {
-    const activity = activities.value[index];
-    if (activity.image?.preview) {
-      URL.revokeObjectURL(activity.image.preview);
-    }
-    if (activity.video?.preview) {
-      URL.revokeObjectURL(activity.video.preview);
-    }
-    activities.value.splice(index, 1);
-  };
-  
-  const deleteMeal = (index: number) => {
-    const meal = meals.value[index];
-    if (meal.image?.preview) {
-      URL.revokeObjectURL(meal.image.preview);
-    }
-    if (meal.video?.preview) {
-      URL.revokeObjectURL(meal.video.preview);
-    }
-    meals.value.splice(index, 1);
-  };
-  
-  const formatDate = (date: Date) => {
-    return new Intl.DateTimeFormat('en-US', {
-      dateStyle: 'medium',
-      timeStyle: 'short'
-    }).format(date);
-  };
-  
-  const saveData = async () => {
-    const data = {
-      activities: activities.value.map(activity => ({
-        ...activity,
-        image: activity.image ? { 
-          file: activity.image.file,
-          type: activity.image.type 
-        } : null,
-        video: activity.video ? {
-          file: activity.video.file,
-          type: activity.video.type
-        } : null
-      })),
-      meals: meals.value.map(meal => ({
-        ...meal,
-        image: meal.image ? {
-          file: meal.image.file,
-          type: meal.image.type
-        } : null,
-        video: meal.video ? {
-          file: meal.video.file,
-          type: meal.video.type
-        } : null
-      }))
-    };
-  
-    try {
-      console.log('Data to be sent to backend:', data);
-      alert('Data saved successfully!');
-    } catch (error) {
-      console.error('Error saving data:', error);
-      alert('Error saving data. Please try again.');
-    }
-  };
-  
-  // Cleanup function to revoke object URLs when component is unmounted
-  onUnmounted(() => {
-    activities.value.forEach(activity => {
-      if (activity.image?.preview) URL.revokeObjectURL(activity.image.preview);
-      if (activity.video?.preview) URL.revokeObjectURL(activity.video.preview);
-    });
     
-    meals.value.forEach(meal => {
-      if (meal.image?.preview) URL.revokeObjectURL(meal.image.preview);
-      if (meal.video?.preview) URL.revokeObjectURL(meal.video.preview);
-    });
-  });
-  </script> -->
-
-
-  <template>
-    <div class="min-h-screen bg-gray-50">
-      <div class="max-w-4xl mx-auto px-4">
-        
-        <!-- Activities Section -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-lg font-semibold mb-6">Record Activity</h2>
-          
-          <form @submit.prevent="addActivity" class="space-y-6">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                Activity Name
-              </label>
-              <input
-                v-model="activityForm.name"
-                type="text"
-                required
-                class="w-full px-3 outline-none py-3.5 border border-gray-300 rounded-lg"
-              />
-            </div>
-  
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                Activity Capture
-              </label>
-              
-              <!-- Camera Selection -->
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Select Camera</label>
-                <select 
-                  v-model="selectedCameraId" 
-                  @change="changeCamera" 
-                  class="w-full px-3 py-2 border border-gray-300 rounded-lg"
-                >
-                  <option v-for="device in videoDevices" :key="device.deviceId" :value="device.deviceId">
-                    {{ device.label || `Camera ${device.deviceId}` }}
-                  </option>
-                </select>
-              </div>
-  
-              <!-- Media Capture Component -->
-              <CoreMediaCapture
-                :cameraId="selectedCameraId"
-                @capture="handleActivityCapture"
-                @save="handleActivitySave"
-                @cancel="resetActivityForm"
-              />
-            </div>
-  
-            <div v-if="activityForm.media" class="mt-4">
-              <h4 class="text-sm font-medium text-gray-700 mb-2">Preview:</h4>
-              <div class="relative">
-                <img
-                  v-if="activityForm.media.type === 'image'"
-                  :src="activityForm.media.preview"
-                  class="w-full max-w-md h-48 object-cover rounded"
-                  alt="Activity preview"
-                />
-                <video
-                  v-if="activityForm.media.type === 'video'"
-                  :src="activityForm.media.preview"
-                  controls
-                  class="w-full max-w-md h-48 object-cover rounded"
-                ></video>
-              </div>
-            </div>
-  
-            <button
-              type="submit"
-              :disabled="!canSubmitActivity"
-              :class="[
-                'w-full px-4 py-3.5 rounded-lg transition',
-                canSubmitActivity 
-                  ? 'bg-blue-600 text-white hover:bg-blue-700' 
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-              ]"
-            >
-              Add Activity
-            </button>
-          </form>
+    <div class="w-full bg-white border-[0.5px] border-gray-100 rounded-lg">
+     <div class="flex justify-between items-center border-b border-[0.5px] border-gray-50 px-4 py-4">
+      <h2 class="text- font-semibold">Add Activities</h2>
+      <button
+        type="button"
+        class="px-4 py-2 bg-green-500 rounded-lg text-white flex items-center gap-x-3 text-sm"
+        @click="addActivity"
+      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        Add Activity
+      </button>
+     </div>
+      <div v-for="(activity, index) in activities" :key="index" class="mb-4 p-4">
+        <label class="block text-xs font-medium mb-2">Activity Name</label>
+        <input
+          v-model="activity.name"
+          type="text"
+          placeholder="Enter activity name"
+           class="w-full px-3 py-3 text-sm bg-gray-100 w-full outline-none border-[0.5px] border-gray-100 rounded mb-2"
+        />
+        <div v-if="activity.image" class="mb-2">
+          <img :src="activity.image" alt="Activity" class="w-40 h-40 object-cover rounded" />
         </div>
+        <button
+           type="button"
+           class="flex items-center text-sm border-[0.5px] text-white mt-2 rounded-lg gap-x-3 p-2 px-3 bg-black"
+          @click="openCamera('activity', index)"
+        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(2 3)"><path d="M20 16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3l2-3h6l2 3h3a2 2 0 0 1 2 2v11z"/><circle cx="10" cy="10" r="4"/></g></svg>
+        Add Photo
+        </button>
       </div>
     </div>
-  </template>
+
   
-  <script setup lang="ts">
-  import { ref, computed, onMounted } from 'vue';
-  import { useCamera } from '@/composables/core/useCamera';
-  
-  // Camera Management
-  const { startCamera, stopCamera } = useCamera();
-  const videoDevices = ref<MediaDeviceInfo[]>([]);
-  const selectedCameraId = ref<string | null>(null);
-  
-  const getCameras = async () => {
-    try {
-      const devices = await navigator.mediaDevices.enumerateDevices();
-      videoDevices.value = devices.filter((device) => device.kind === 'videoinput');
-      if (videoDevices.value.length > 0) {
-        selectedCameraId.value = videoDevices.value[0].deviceId; // Default to first camera
-      }
-    } catch (error) {
-      console.error('Error fetching cameras:', error);
-    }
-  };
-  
-  const changeCamera = async () => {
-    try {
-      if (selectedCameraId.value) {
-        await startCamera(selectedCameraId.value);
-      }
-    } catch (error) {
-      console.error('Error switching camera:', error);
-    }
-  };
-  
-  // Activity Management
-  interface MediaFile {
-    preview: string;
-    file: File;
-    type: 'image' | 'video';
+<div class="w-full pt-6">
+  <button
+      type="button"
+      class="mt-6 w-full px-6 py-3 text-sm bg-green-500 text-white rounded"
+      @click="submitData"
+    >
+      Submit All Data
+    </button>
+</div>
+
+
+    <div
+      v-if="isCameraOpen"
+      class="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center z-50"
+    >
+      <div class="bg-white border rounded-lg p-3">
+        <div class="relative w-80 h-80 bg-black">
+        <video
+          ref="videoRef"
+          class="absolute inset-0 w-full h-full object-cover"
+          autoplay
+          playsinline
+          muted
+        ></video>
+        <canvas ref="canvasRef" class="hidden"></canvas>
+      </div>
+      <div class="mt-4 flex w-full justify-center items-center space-x-4">
+        <div>
+          <button
+           type="button"
+          class="px-2 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+          @click="closeCamera"
+        >
+          <img src="@/assets/icon/close-camera.svg" class="h-7  w-7" />
+        </button>
+        </div>
+     <div>
+      <button
+           type="button"
+          class="px-2 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
+          @click="switchCamera"
+        >
+          <img src="@/assets/icon/switch-camera.svg" class="h-7  w-7" />
+        </button>
+     </div>
+    <div>
+      <button
+           type="button"
+          class="px-2 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+          @click="capturePhoto"
+        >
+          <img src="@/assets/icon/capture.svg" class="h-7  w-7" />
+        </button>
+    </div>
+      </div>
+      </div>
+    </div>
+
+    <div
+      v-if="photoToSave"
+      class="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center z-50"
+    >
+     <div class="bg-white border rounded-lg p-3">
+      <h2 class="text- font-medium mb-4">Preview Photo</h2>
+      <img :src="photoToSave" alt="Preview" class="w-80 h-80 object-cover rounded mb-4" />
+      <div class="flex w-full space-x-4">
+     <div class="w-full">
+      <button
+          type="button"
+          class="px-4 py-2 w-full text-sm text-center bg-red-500 text-white rounded hover:bg-red-600"
+          @click="discardPhoto"
+        >
+          Discard
+        </button>
+     </div>
+       <div class="w-full">
+        <button
+          type="button"
+          class="px-4 py-2 w-full text-sm text-center bg-blue-500 justify-center text-white rounded hover:bg-blue-600 flex items-center"
+          @click="savePhoto"
+        >
+          <span v-if="loading" class="loader mr-2"></span>
+          {{ loading ? "Saving..." : "Save Photo" }}
+        </button>
+       </div>
+      </div>
+     </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import { ref } from "vue";
+import { useUploadFile } from "@/composables/core/useFileUpload";
+import { useCreateActivity } from '@/composables/modules/activity/useCreateActivity'
+const { loading: creating, createActivity } = useCreateActivity()
+
+const meals = ref([{ name: "", image: "" }]);
+const activities = ref([{ name: "", image: "" }]);
+const isCameraOpen = ref(false);
+const photoToSave = ref<string | null>(null);
+const isUsingFrontCamera = ref(true);
+const currentItem = ref<{ type: "meal" | "activity"; index: number } | null>(null);
+
+const videoRef = ref<HTMLVideoElement | null>(null);
+const canvasRef = ref<HTMLCanvasElement | null>(null);
+let stream: MediaStream | null = null;
+
+const { uploadFile, loading, uploadResponse } = useUploadFile();
+
+const openCamera = async (type: "meal" | "activity", index: number) => {
+  currentItem.value = { type, index };
+  await startCamera();
+};
+
+const closeCamera = () => {
+  if (stream) {
+    stream.getTracks().forEach((track) => track.stop());
   }
-  
-  const activityForm = ref({
-    name: '',
-    media: null as MediaFile | null,
-  });
-  
-  const canSubmitActivity = computed(() => 
-    activityForm.value.name.trim() && activityForm.value.media
-  );
-  
-  const handleActivityCapture = (media: MediaFile) => {
-    activityForm.value.media = {
-      preview: URL.createObjectURL(media.file),
-      file: media.file,
-      type: media.file.type.startsWith('video/') ? 'video' : 'image',
-    };
-  };
-  
-  const handleActivitySave = (media: MediaFile) => {
-    activityForm.value.media = {
-      preview: URL.createObjectURL(media.file),
-      file: media.file,
-      type: media.file.type.startsWith('video/') ? 'video' : 'image',
-    };
-  };
-  
-  const resetActivityForm = () => {
-    if (activityForm.value.media?.preview) {
-      URL.revokeObjectURL(activityForm.value.media.preview);
+  stream = null;
+  isCameraOpen.value = false;
+};
+
+const switchCamera = async () => {
+  isUsingFrontCamera.value = !isUsingFrontCamera.value;
+  await startCamera();
+};
+
+const startCamera = async () => {
+  try {
+    if (stream) {
+      stream.getTracks().forEach((track) => track.stop());
     }
-    activityForm.value = {
-      name: '',
-      media: null,
-    };
+    const mode = isUsingFrontCamera.value ? "user" : "environment";
+    stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: mode } });
+    if (videoRef.value) {
+      videoRef.value.srcObject = stream;
+    }
+    isCameraOpen.value = true;
+  } catch (error) {
+    console.error("Error accessing camera:", error);
+  }
+};
+
+const capturePhoto = () => {
+  if (!videoRef.value || !canvasRef.value) return;
+
+  const canvas = canvasRef.value;
+  const context = canvas.getContext("2d");
+  if (!context) return;
+
+  canvas.width = videoRef.value.videoWidth;
+  canvas.height = videoRef.value.videoHeight;
+  context.drawImage(videoRef.value, 0, 0, canvas.width, canvas.height);
+
+  photoToSave.value = canvas.toDataURL("image/png");
+  closeCamera();
+};
+
+const savePhoto = async () => {
+  if (!photoToSave.value || !currentItem.value) return;
+
+  const blob = await fetch(photoToSave.value).then((res) => res.blob());
+  const file = new File([blob], "photo.png", { type: "image/png" });
+
+  const response = await uploadFile(file);
+  if (response && currentItem.value) {
+    const { type, index } = currentItem.value;
+    if (type === "meal") meals.value[index].image = response.url;
+    else if (type === "activity") activities.value[index].image = response.url;
+  }
+
+  discardPhoto();
+};
+
+const discardPhoto = () => {
+  photoToSave.value = null;
+};
+
+const addMeal = () => {
+  meals.value.push({ name: "", image: "" });
+};
+
+const addActivity = () => {
+  activities.value.push({ name: "", image: "" });
+};
+
+const submitData = async () => {
+  const data = {
+    meals: meals.value,
+    activities: activities.value,
   };
-  
-  onMounted(() => {
-    getCameras();
-  });
-  </script>
-  
+
+  await createActivity(data)
+
+  // try {
+  //   const response = await fetch("/api/submit-data", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(data),
+  //   });
+  //   console.log("Data submitted successfully:", await response.json());
+  // } catch (error) {
+  //   console.error("Error submitting data:", error);
+  // }
+};
+</script>
+
+<style>
+.loader {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>
