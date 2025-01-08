@@ -25,7 +25,7 @@ export const admin_api = {
 		return GATEWAY_ENDPOINT.get(url)
 	},
     $_fetch_health_tip_by_date: (date: string) => {
-		const url = `/health-tips/${date}`
+		const url = `/health-tips/by-date?date=${date}`
 		return GATEWAY_ENDPOINT.get(url)
 	},
     $_delete_health_tip: (id: any) => {

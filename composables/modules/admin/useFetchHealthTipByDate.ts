@@ -40,6 +40,7 @@ export const useFetchHealthTipByDate = () => {
 
         loading.value = true
         const res = await $_fetch_health_tip_by_date(selectedDate.value) as any
+        console.log(res, 'res here')
         if (res.type !== 'ERROR') {
             healthTips.value = res?.data ?? []
         }
