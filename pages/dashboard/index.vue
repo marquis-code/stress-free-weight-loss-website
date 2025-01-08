@@ -191,7 +191,8 @@ const { healthTips, loading } = useFetchHealthTipByDate()
   const navItems = ref(['Home', 'Calender'])
 
   definePageMeta({
-    layout: 'user'
+    layout: 'user',
+	middleware: 'auth'
   })
   
   const graphData = ref([

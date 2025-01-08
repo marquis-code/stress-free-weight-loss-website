@@ -199,5 +199,9 @@ const toggleShowPassword = () => {
   showPassword.value = !showPassword.value;
 };
 
+definePageMeta({
+    middleware: 'auth'
+})
+
   const showPassword = ref(false);
 </script>

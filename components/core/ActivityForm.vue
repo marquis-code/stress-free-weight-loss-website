@@ -1,9 +1,7 @@
-<template>
+<!-- <template>
     <div class="min-h-screen bg-gray-50">
       <div class="max-w-4xl mx-auto px-4">
-        <!-- <h1 class="text-3xl font-bold text-gray-900 mb-8">Weight Loss Activity Tracker</h1> -->
         
-        <!-- Activities Section -->
         <div class="bg-white rounded-lg shadow-md p-6 mb-8">
           <h2 class="text-lg font-semibold mb-6">Record Activity</h2>
           
@@ -24,11 +22,22 @@
               <label class="block text-sm font-medium text-gray-700 mb-2">
                 Activity Capture
               </label>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Select Camera</label>
+                <select v-model="selectedCamera" @change="changeCamera" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                  <option v-for="device in videoDevices" :key="device.deviceId" :value="device.deviceId">
+                    {{ device.label || `Camera ${device.deviceId}` }}
+                  </option>
+                </select>
+              </div>
+
               <CoreMediaCapture
-                @capture="handleActivityCapture"
-                @save="handleActivitySave"
-                @cancel="resetActivityForm"
-              />
+                  :cameraId="selectedCamera"
+                  @capture="handleCapture"
+                  @save="handleSave"
+                  @cancel="resetForm"
+                />
             </div>
   
             <div v-if="activityForm.media" class="mt-4">
@@ -64,7 +73,6 @@
           </form>
         </div>
   
-        <!-- Meals Section -->
         <div class="bg-white rounded-lg shadow-md p-6">
           <h2 class="text-lg font-semibold mb-6">Record Meal</h2>
           
@@ -125,7 +133,6 @@
           </form>
         </div>
   
-        <!-- Summary Section -->
         <div class="mt-8 space-y-6">
           <div v-if="activities.length > 0" class="bg-white rounded-lg shadow-md p-6">
             <h3 class="text-lg font-semibold mb-4">Recorded Activities</h3>
@@ -144,7 +151,6 @@
                   </button>
                 </div>
                 <div v-if="activity.image || activity.video" class="mt-2">
-                    <!-- {{ activity }} -->
                     <img v-if="!activity?.image?.length" class="h-44 w-full" src="@/assets/icon/no-image.svg" />
                   <img
                     v-if="activity?.image?.length"
@@ -187,7 +193,6 @@
                     class="w-full max-w-md h-48 object-cover rounded"
                     alt="Meal image"
                   />
-                  <!-- <img class="w-full max-w-md h-48 object-cover rounded" v-else src="@/assets/icon/no-image.svg" /> -->
                   <video
                     v-if="meal.video"
                     :src="meal.video.preview"
@@ -233,6 +238,43 @@
     video: MediaFile | null;
     timestamp: Date;
   }
+
+  // Selected camera ID
+const selectedCamera = ref('');
+const videoDevices = ref<MediaDeviceInfo[]>([]);
+
+const getCameras = async () => {
+  try {
+    const devices = await navigator.mediaDevices.enumerateDevices();
+    videoDevices.value = devices.filter((device) => device.kind === 'videoinput');
+    if (videoDevices.value.length > 0) {
+      selectedCamera.value = videoDevices.value[0].deviceId; // Default to the first camera
+    }
+  } catch (error) {
+    console.error('Error fetching cameras:', error);
+  }
+};
+
+const changeCamera = () => {
+  console.log('Selected Camera ID:', selectedCamera.value);
+};
+
+// This function can be connected to CoreMediaCapture
+const handleCapture = (media) => {
+  console.log('Captured media:', media);
+};
+
+const handleSave = (media) => {
+  console.log('Saved media:', media);
+};
+
+const resetForm = () => {
+  console.log('Form reset');
+};
+
+onMounted(() => {
+  getCameras();
+});
   
   const activities = ref<Activity[]>([]);
   const meals = ref<Meal[]>([]);
@@ -409,4 +451,169 @@
       if (meal.video?.preview) URL.revokeObjectURL(meal.video.preview);
     });
   });
+  </script> -->
+
+
+  <template>
+    <div class="min-h-screen bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4">
+        
+        <!-- Activities Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-lg font-semibold mb-6">Record Activity</h2>
+          
+          <form @submit.prevent="addActivity" class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                Activity Name
+              </label>
+              <input
+                v-model="activityForm.name"
+                type="text"
+                required
+                class="w-full px-3 outline-none py-3.5 border border-gray-300 rounded-lg"
+              />
+            </div>
+  
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                Activity Capture
+              </label>
+              
+              <!-- Camera Selection -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Select Camera</label>
+                <select 
+                  v-model="selectedCameraId" 
+                  @change="changeCamera" 
+                  class="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                >
+                  <option v-for="device in videoDevices" :key="device.deviceId" :value="device.deviceId">
+                    {{ device.label || `Camera ${device.deviceId}` }}
+                  </option>
+                </select>
+              </div>
+  
+              <!-- Media Capture Component -->
+              <CoreMediaCapture
+                :cameraId="selectedCameraId"
+                @capture="handleActivityCapture"
+                @save="handleActivitySave"
+                @cancel="resetActivityForm"
+              />
+            </div>
+  
+            <div v-if="activityForm.media" class="mt-4">
+              <h4 class="text-sm font-medium text-gray-700 mb-2">Preview:</h4>
+              <div class="relative">
+                <img
+                  v-if="activityForm.media.type === 'image'"
+                  :src="activityForm.media.preview"
+                  class="w-full max-w-md h-48 object-cover rounded"
+                  alt="Activity preview"
+                />
+                <video
+                  v-if="activityForm.media.type === 'video'"
+                  :src="activityForm.media.preview"
+                  controls
+                  class="w-full max-w-md h-48 object-cover rounded"
+                ></video>
+              </div>
+            </div>
+  
+            <button
+              type="submit"
+              :disabled="!canSubmitActivity"
+              :class="[
+                'w-full px-4 py-3.5 rounded-lg transition',
+                canSubmitActivity 
+                  ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+              ]"
+            >
+              Add Activity
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </template>
+  
+  <script setup lang="ts">
+  import { ref, computed, onMounted } from 'vue';
+  import { useCamera } from '@/composables/core/useCamera';
+  
+  // Camera Management
+  const { startCamera, stopCamera } = useCamera();
+  const videoDevices = ref<MediaDeviceInfo[]>([]);
+  const selectedCameraId = ref<string | null>(null);
+  
+  const getCameras = async () => {
+    try {
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      videoDevices.value = devices.filter((device) => device.kind === 'videoinput');
+      if (videoDevices.value.length > 0) {
+        selectedCameraId.value = videoDevices.value[0].deviceId; // Default to first camera
+      }
+    } catch (error) {
+      console.error('Error fetching cameras:', error);
+    }
+  };
+  
+  const changeCamera = async () => {
+    try {
+      if (selectedCameraId.value) {
+        await startCamera(selectedCameraId.value);
+      }
+    } catch (error) {
+      console.error('Error switching camera:', error);
+    }
+  };
+  
+  // Activity Management
+  interface MediaFile {
+    preview: string;
+    file: File;
+    type: 'image' | 'video';
+  }
+  
+  const activityForm = ref({
+    name: '',
+    media: null as MediaFile | null,
+  });
+  
+  const canSubmitActivity = computed(() => 
+    activityForm.value.name.trim() && activityForm.value.media
+  );
+  
+  const handleActivityCapture = (media: MediaFile) => {
+    activityForm.value.media = {
+      preview: URL.createObjectURL(media.file),
+      file: media.file,
+      type: media.file.type.startsWith('video/') ? 'video' : 'image',
+    };
+  };
+  
+  const handleActivitySave = (media: MediaFile) => {
+    activityForm.value.media = {
+      preview: URL.createObjectURL(media.file),
+      file: media.file,
+      type: media.file.type.startsWith('video/') ? 'video' : 'image',
+    };
+  };
+  
+  const resetActivityForm = () => {
+    if (activityForm.value.media?.preview) {
+      URL.revokeObjectURL(activityForm.value.media.preview);
+    }
+    activityForm.value = {
+      name: '',
+      media: null,
+    };
+  };
+  
+  onMounted(() => {
+    getCameras();
+  });
   </script>
+  

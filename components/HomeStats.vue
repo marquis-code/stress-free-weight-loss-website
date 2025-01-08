@@ -3,7 +3,8 @@
       <div class="flex justify-between items-center mb-8">
         <div>
           <h1 class="text-xl font-bold text-gray-900 mb-2">Weight Loss Program</h1>
-          <p class="text-gray-500">Day 21</p>
+          <!-- <p class="text-gray-500">Day 21</p> -->
+          <CoreCountdownTimer />
         </div>
         <div class="flex gap-2">
           <button class="p-2 bg-gray-100 rounded-full hover:bg-gray-200">
@@ -18,17 +19,17 @@
       <!-- Stat Cards -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         <div class="bg-orange-500 rounded-xl p-6 text-white">
-          <div class="text-5xl font-bold mb-2">82</div>
+          <div class="text-5xl font-bold mb-2">0</div>
           <div class="text-sm opacity-90">Weight<span class="text-xs ml-1">kg</span></div>
         </div>
   
         <div class="bg-purple-600 rounded-xl p-6 text-white">
-          <div class="text-5xl font-bold mb-2">51</div>
+          <div class="text-5xl font-bold mb-2">0</div>
           <div class="text-sm opacity-90">Goal<span class="text-xs ml-1">kg</span></div>
         </div>
   
         <div class="bg-orange-400 rounded-xl p-6 text-white">
-          <div class="text-5xl font-bold mb-2">1.4</div>
+          <div class="text-5xl font-bold mb-2">0</div>
           <div class="text-sm opacity-90">Average Daily Loss<span class="text-xs ml-1">kg</span></div>
           <div class="mt-2 h-8">
             <div class="flex justify-between h-full">
@@ -40,7 +41,7 @@
         </div>
   
         <div class="bg-blue-400 rounded-xl p-6 text-white">
-          <div class="text-5xl font-bold mb-2">50</div>
+          <div class="text-5xl font-bold mb-2">0</div>
           <div class="text-sm opacity-90">Daily Workout<span class="text-xs ml-1">min</span></div>
           <div class="mt-2 relative h-8">
             <!-- Simple line chart using SVG -->

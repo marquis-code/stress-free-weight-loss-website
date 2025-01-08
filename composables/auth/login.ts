@@ -1,8 +1,8 @@
-import { ref, computed } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
 import { useUser } from "@/composables/auth/user";
 import { auth_api } from "@/api_factory/modules/auth";
-import { useCustomToast } from '@/composables/core/useCustomToast'
+import { useCustomToast } from "@/composables/core/useCustomToast";
 const { showToast } = useCustomToast();
 
 const credential = {
@@ -22,37 +22,34 @@ export const useLogin = () => {
 
   const login = async () => {
     loading.value = true;
-    try {
-      const res = await auth_api.$_login({
-        email: credential?.email?.value?.toLowerCase(),
-        password: credential.password.value,
+
+    const res = await auth_api.$_login({
+      email: credential?.email?.value?.toLowerCase(),
+      password: credential.password.value,
+    });
+    // window.location.href = "/dashboard"
+    console.log(res, "res here outside");
+
+    if (res.status == 200 || res.status == 201) {
+      console.log(res, "res here");
+      useUser().createUser(res.data);
+      showToast({
+        title: "Success",
+        message: "Login was successful!",
+        toastType: "success",
+        duration: 3000,
       });
-      // window.location.href = "/dashboard"
-
-      if(res.status == 200 || res.status == 201){
-        console.log(res, 'res here');
-        useUser().createUser(res.data);
-        showToast({
-          title: "Success",
-          message: "Login was successful!",
-          toastType: "success",
-          duration: 3000
-        });
-        router.push("/dashboard");
-        window.location.href = "/dashboard"
-      }
-
-    } catch (error) {
+      router.push("/dashboard");
+      window.location.href = "/dashboard"
+    } else {
       showToast({
         title: "Error",
-        message: "Login Error",
+        message: res.data.message,
         toastType: "error",
-        duration: 3000
+        duration: 3000,
       });
-    } finally {
-      router.push("/dashboard");
-      loading.value = false;
     }
+    loading.value = false;
   };
 
   return { credential, login, loading, isFormDisabled };
