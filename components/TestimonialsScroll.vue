@@ -1,6 +1,6 @@
 <template>
     <div class="w-full overflow-hidden bg-gray-25 py-32">
-        <section class="pl-10 lg:pl-32">
+        <section class="pl-4 lg:pl-32">
         <div class="inline-block px-4 py-2.5 mb-6 bg-gray-100 rounded-full">
         <span class="text-green-500 font-medium">Testimonials</span>
       </div>
@@ -71,7 +71,7 @@
                 <img 
                   :src="testimonial.avatar" 
                   :alt="testimonial.name"
-                  class="w-12 h-12 rounded-full object-cover flex-shrink-0"
+                  class="w-10 h-10 rounded-full object-cover flex-shrink-0"
                 />
                 <div class="ml-3 flex-shrink-0">
                   <p class="text-gray-900 text-sm font-medium">{{ testimonial.name }}</p>
@@ -86,7 +86,7 @@
   </template>
 
   <script setup lang="ts">
-  import user from '@/assets/icon/user-account.svg'
+  import user from '@/assets/icon/user-avatar.svg'
   interface Testimonial {
     id: number;
     content: string;

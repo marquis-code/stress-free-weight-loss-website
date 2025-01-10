@@ -48,30 +48,32 @@
 <script lang="ts" setup>
 const faqs = [
     {
-        id: 1, question: 'What\'s the most effective diet for weight loss ?', answer: `To get started, simply reach out to our team through the contact form or give us a call. We'll be happy to discuss your project and provide you with all the information you need.
-`
+        id: 1, 
+        question: 'What\'s the most effective diet for weight loss?', 
+        answer: `The most effective diet for weight loss is one that you can sustain over time. Focus on a balanced approach that includes lean proteins, whole grains, fruits, vegetables, and healthy fats. Avoid extreme diets that are hard to maintain and prioritize a plan that fits your lifestyle.`
     },
     {
-        id: 2, question: 'How many calories should I eat to lose weight ?', answer: `We offer a wide range of services including software development, product design, and bespoke software solutions. Our team is experienced in working with startups, scale-ups, and enterprises across various industries..
-`
+        id: 2, 
+        question: 'How many calories should I eat to lose weight?', 
+        answer: `The number of calories you should eat depends on your age, gender, activity level, and weight-loss goals. A common guideline is to create a calorie deficit of 500–1000 calories per day to lose about 0.5–1 kilogram (1–2 pounds) per week. Use a calorie calculator to determine your personalized needs.`
     },
     {
         id: 3,
-        question: `Is it better to focus on diet or exercise for weight loss ?`,
-        answer: `We prioritize quality assurance through manual testing and test automation. This allows us to deliver powerful web and mobile applications that provide a seamless user experience..
-`
+        question: `Is it better to focus on diet or exercise for weight loss?`,
+        answer: `Both diet and exercise are important for weight loss, but diet tends to have a greater impact. Combining a healthy diet with regular physical activity is the best approach for long-term success. Start by making small, sustainable changes to both your eating habits and your activity level.`
     },
     {
         id: 4,
-        question: `What are some healthy snacks for weight loss ?`,
-        answer: `Our design process focuses on creating user-friendly navigation, engaging UX/UI design, and improving conversions through relevant content and consistent branding. We support clients at any stage of product development, from discovery to UX/UI design.`
+        question: `What are some healthy snacks for weight loss?`,
+        answer: `Healthy snacks for weight loss include options like fresh fruit, unsalted nuts, low-fat yogurt, hard-boiled eggs, and vegetables with hummus. These snacks are nutrient-dense and help keep you full between meals without adding excess calories.`
     },
     {
         id: 5,
-        question: `How can I lose weight without feeling hungry all the time ?`,
-        answer: `Yes, we ensure that our designs are scalable and coherent across all teams involved. Whether you're a startup or an enterprise, we can help you build a digital product that grows with your business.`
+        question: `How can I lose weight without feeling hungry all the time?`,
+        answer: `To avoid feeling hungry while losing weight, focus on eating high-fiber foods like fruits, vegetables, and whole grains, as well as lean proteins. These foods help you feel fuller for longer. Drinking plenty of water, eating smaller meals more frequently, and getting enough sleep can also help manage hunger.`
     }
-]
+];
+
 
 const openId = ref(null)
 const maxHeight = ref(0)
