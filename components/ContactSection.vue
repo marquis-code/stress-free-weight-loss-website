@@ -50,7 +50,7 @@
                                 </dt>
                                 <dd>
                                   <a class="hover:text-gray-900 font-semibold" href="tel:+2348147341598" data-aos="fade-up">
-                                    +234 (814) - 734 - 1598</a>
+                                    +234 (814) - 762 - 26503</a>
                                    or <br />
                                    <a class="hover:text-gray-900 font-semibold" href="tel:+2347030338088">+234 (703) - 033 - 8088</a>
                                   </dd>
@@ -133,7 +133,7 @@
   <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
     <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
       <!-- First Name -->
-      <div>
+      <!-- <div>
         <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">First name</label>
         <div class="mt-2.5">
           <input
@@ -146,10 +146,10 @@
             class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
           />
         </div>
-      </div>
+      </div> -->
 
       <!-- Last Name -->
-      <div>
+      <!-- <div>
         <label for="last-name" class="block text-sm font-semibold leading-6 text-gray-900">Last name</label>
         <div class="mt-2.5">
           <input
@@ -162,7 +162,7 @@
             class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
           />
         </div>
-      </div>
+      </div> -->
 
       <!-- Email -->
       <div class="sm:col-span-2">
@@ -197,7 +197,7 @@
       </div>
 
       <!-- Age -->
-      <div>
+      <!-- <div>
         <label for="age" class="block text-sm font-semibold leading-6 text-gray-900">Age</label>
         <div class="mt-2.5">
           <input
@@ -209,10 +209,10 @@
             class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
           />
         </div>
-      </div>
+      </div> -->
 
       <!-- Gender -->
-      <div>
+      <!-- <div>
         <label for="gender" class="block text-sm font-semibold leading-6 text-gray-900">Gender</label>
         <div class="mt-2.5">
           <select
@@ -227,10 +227,10 @@
             <option value="non-binary">Non-binary</option>
           </select>
         </div>
-      </div>
+      </div> -->
 
       <!-- Weight Loss Goal -->
-      <div class="sm:col-span-2">
+      <!-- <div class="sm:col-span-2">
         <label for="weight-loss-goal" class="block text-sm font-semibold leading-6 text-gray-900">Weight Loss Goal</label>
         <div class="mt-2.5">
           <input
@@ -242,10 +242,10 @@
             class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
           />
         </div>
-      </div>
+      </div> -->
 
       <!-- Activity Level -->
-      <div class="sm:col-span-2">
+      <!-- <div class="sm:col-span-2">
         <label for="activity-level" class="block text-sm font-semibold leading-6 text-gray-900">Activity Level</label>
         <div class="mt-2.5">
           <input
@@ -257,10 +257,10 @@
             class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
           />
         </div>
-      </div>
+      </div> -->
 
       <!-- Diet Preferences or Restrictions -->
-      <div class="sm:col-span-2">
+      <!-- <div class="sm:col-span-2">
         <label for="diet-preferences" class="block text-sm font-semibold leading-6 text-gray-900">Diet Preferences</label>
         <div class="mt-2.5">
           <textarea
@@ -272,11 +272,11 @@
             class="block w-full rounded-md border-[0.6px] border-gray-600 px-3.5 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6"
           ></textarea>
         </div>
-      </div>
+      </div> -->
 
       <!-- Medical Conditions or Concerns -->
       <div class="sm:col-span-2">
-        <label for="medical-conditions" class="block text-sm font-semibold leading-6 text-gray-900">Medical Conditions</label>
+        <label for="medical-conditions" class="block text-sm font-semibold leading-6 text-gray-900">When it comes to weight loss what is your greatest concern ?</label>
         <div class="mt-2.5">
           <textarea
             name="medical-conditions"
@@ -290,7 +290,7 @@
       </div>
 
       <!-- Preferred Communication Method -->
-      <div class="w-full">
+      <!-- <div class="w-full">
         <label for="communication-method" class="block text-sm font-semibold leading-6 text-gray-900">Preferred Communication Method</label>
         <div class="mt-2.5">
           <select
@@ -305,7 +305,7 @@
             <option value="whatsapp">WhatsApp</option>
           </select>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- Submit Button -->
@@ -365,70 +365,95 @@
   const { showToast } = useCustomToast();
 const processing = ref(false)
 const formData = ref({
-      firstName: '',
-      lastName: '',
+      // firstName: '',
+      // lastName: '',
       email: '',
       phoneNumber: '',
-      age: '',
-      gender: '',
-      weight_loss_goal: '',
-      current_activity_level: '',
-      diet_preferences: '',
       additional_questions: '',
-      preferred_communication_method: '',
+      // age: '',
+      // gender: '',
+      // weight_loss_goal: '',
+      // current_activity_level: '',
+      // diet_preferences: '',
+
+      // preferred_communication_method: '',
 });
 
+// async function handleSubmit() {
+//     processing.value = true
+//     const url = 'https://swl-enquires.onrender.com/api/auth/signup';  // Your API endpoint
+//     try {
+//         const response = await fetch(url, {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(formData.value)
+//         });
+
+//         if (!response.ok) {
+//             showToast({
+//             title: "Error",
+//             message: "Network response was not ok.'",
+//             toastType: "error",
+//             duration: 3000
+//           });
+//             throw new Error('Network response was not ok.');
+//         }
+
+//         const result = await response.json();
+//         showModal.value = true
+//         // formData.value.firstName = ''
+//         // formData.value.lastName = '',
+//         formData.value.email = '',
+//         formData.value.phoneNumber = '',
+//         // formData.value.age = '',
+//         // formData.value.gender = '',
+//         // formData.value.weight_loss_goal = '',
+//         // formData.value.current_activity_level = '',
+//         // formData.value.diet_preferences = '',
+//         formData.value.additional_questions = '',
+//         // formData.value.preferred_communication_method = ''
+//     } catch (error) {
+//         if (process.client) {
+//             showToast({
+//             title: "Error",
+//             message: "Error submitting form'",
+//             toastType: "error",
+//             duration: 3000
+//           });
+//         }
+//     } finally {
+//         processing.value = false
+//     }
+// }
+
+// async function handleSubmit() {
+//   const message = `Hello,%20I%20have%20completed%20my%20payment.%20Please%20confirm.%20Here%20are%20my%20details:%0A%0A` +
+//   `Name:%20${encodeURIComponent(name)}%0A` +
+//   `WhatsApp%20Number:%20${encodeURIComponent(whatsappNumber)}%0A` +
+//   `Gender:%20${encodeURIComponent(gender)}%0A` +
+//   `Age:%20${encodeURIComponent(age)}%0A` +
+//   `%0AThank%20you!`;
+
+//   // Open WhatsApp with the generated message
+//   window.open(`https://wa.me/2347030338088?text=${message}`, "_blank");
+// }
+
 async function handleSubmit() {
-    processing.value = true
-    const url = 'https://swl-enquires.onrender.com/api/auth/signup';  // Your API endpoint
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData.value)
-        });
+  const message = `Hello,%20I%20have%20an%20enquiry.%20Please%20see%20my%20details:%0A%0A` +
+    `Email:%20${encodeURIComponent(formData.value.email)}%0A` +
+    `Phone%20Number:%20${encodeURIComponent(formData.value.phoneNumber)}%0A` +
+    `Greatest%20Concern%20about%20weight%20loss:%20${encodeURIComponent(formData.value.additional_questions)}%0A` +
+    `%0AThank%20you!`;
 
-        if (!response.ok) {
-            showToast({
-            title: "Error",
-            message: "Network response was not ok.'",
-            toastType: "error",
-            duration: 3000
-          });
-            throw new Error('Network response was not ok.');
-        }
-
-        const result = await response.json();
-        showModal.value = true
-        formData.value.firstName = ''
-        formData.value.lastName = '',
-        formData.value.email = '',
-        formData.value.phoneNumber = '',
-        formData.value.age = '',
-        formData.value.gender = '',
-        formData.value.weight_loss_goal = '',
-        formData.value.current_activity_level = '',
-        formData.value.diet_preferences = '',
-        formData.value.additional_questions = '',
-        formData.value.preferred_communication_method = ''
-    } catch (error) {
-        if (process.client) {
-            showToast({
-            title: "Error",
-            message: "Error submitting form'",
-            toastType: "error",
-            duration: 3000
-          });
-        }
-    } finally {
-        processing.value = false
-    }
+  // Open WhatsApp with the generated message
+  window.open(`https://wa.me/2347030338088?text=${message}`, "_blank");
 }
 
+
 const isFormEmpty = computed(() => {
-    return !!(formData.value.firstName && formData.value.lastName && formData.value.email && formData.value.phoneNumber && formData.value.age && formData.value.gender && formData.value.age && formData.value.weight_loss_goal && formData.value.current_activity_level && formData.value.diet_preferences && formData.value.additional_questions && formData.value.preferred_communication_method)
+    return !!(formData.value.email && formData.value.phoneNumber && formData.value.additional_questions)
 })
 
 const capitalizeFirstLetter = (string: string) => {
