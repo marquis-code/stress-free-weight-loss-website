@@ -54,7 +54,7 @@
     </span>
   </div>
     <div class="absolute bottom-14 left-8 text-gray-200 font-semibold text-base">
-      <span>NGN 50,000</span>
+      <span>{{ computedAmount }}</span>
     </div>
     <div class="absolute bottom-6 left-8 text-gray-200 font-semibold text-xl uppercase">
       <span class="text-xs">PAMPACE NIGERIA LTD </span>
@@ -67,6 +67,11 @@
 import { useClipboard } from '@/composables/core/useClipboard';
 import { useCustomToast } from '@/composables/core/useCustomToast'
 const { showToast } = useCustomToast();
+const route = useRoute()
+
+const computedAmount = computed(() => {
+  return route.query.plan === 'basic' ? '₦ 139,000' : route.query.plan === 'premium' ? '₦ 339,000' : '₦ 139,000'
+})
 
 const accountNumber = ref('1218646895');
 const { copyToClipboard } = useClipboard();

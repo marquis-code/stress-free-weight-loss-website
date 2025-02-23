@@ -15,8 +15,8 @@
 
 
       <transition name="fade" mode="out-in">
-        <div :key="currentStep" class="space-y-6">
-          <h2 class="text-2xl font-bold">{{ stepTitle }}</h2>
+        <div :key="currentStep" class="space-y-4">
+          <h2 class="text-xl font-bold">{{ stepTitle }}</h2>
           <p class="text-gray-600">{{ stepDescription }}</p>
 
 
@@ -300,18 +300,13 @@
               </select>
             </div>
 
-            <!-- Willing to Pay for Coaching -->
+            <!-- Willing to Pay for Coaching-->
             <div>
               <label class="input-label">
-                Will you be willing to pay for coaching (individual coaching or group coaching), if weight loss is
-                guaranteed?
+               Medical Conditions been treated for
               </label>
-              <select v-model="formData.willingToPayForCoaching" class="transaction-input-field"
-                required>
-                <option value="" disabled>Select an option</option>
-             <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
+              <textarea v-model="formData.medicalConditions" type="text" placeholder="Enter Medical conditions been treated for"
+                class="transaction-input-field" required></textarea>
             </div>
 
             <!-- Participated in Coaching Before -->
@@ -330,16 +325,18 @@
             <!-- Referral Source -->
             <div>
               <label class="input-label">
-                Where did you hear about us?
+                Where did you hear about us (Please include full details)?
               </label>
-              <select v-model="formData.referralSource" class="transaction-input-field" required>
+              <input v-model="formData.referralSource" type="text" placeholder=""
+              class="transaction-input-field" />
+              <!-- <select v-model="formData.referralSource" class="transaction-input-field" required>
                 <option value="" disabled>Select an option</option>
                 <option value="Friend">Friend</option>
                 <option value="Facebook">Facebook</option>
                 <option value="WhatsApp">WhatsApp</option>
                 <option value="Family">Family</option>
                 <option value="Others">Others</option>
-              </select>
+              </select> -->
             </div>
 
             <!-- Referral Details (if applicable) -->
@@ -515,12 +512,14 @@ const formData = ref({
   reasonsForDislikingFruits: "", // Reasons if likesFruits is "No"
   likesVegetables: "", // Options: "Yes", "No"
   favoriteVegetables: [], // Array of favorite vegetables if likesVegetables is "Yes"
+  // favoriteVegetables: "", // 
   reasonsForDislikingVegetables: "", // Reasons if likesVegetables is "No"
   eatsALot: "", // Options: "Yes", "No"
 
   // Challenges and Goals
   weightLossChallengesList: [], // Array of challenges (from the options provided)
   healthChallenges: "", // Details of health challenges
+  medicalConditions: "",
   weightLossMotivations: [], // Array of motivations (from the options provided)
   activityLevel: "", // Options: "Low", "Moderate", "High", "Other"
 
@@ -529,7 +528,7 @@ const formData = ref({
   canProvideUpdates: "", // Options: "Yes", "No"
   canAffordWeighingScale: "", // Options: "Yes", "No"
   needsExerciseHelp: "", // Options: "Yes", "No"
-  willingToPayForCoaching: "", // Options: "Yes", "No"
+  // willingToPayForCoaching: "", // Options: "Yes", "No"
   participatedInCoachingBefore: "", // Options: "Yes", "No"
   referralSource: "", // Options: "Friend", "Facebook", "WhatsApp", "Family", "Others"
   referralSourceDetails: "", // Extra details if referralSource is "Others"
@@ -571,7 +570,7 @@ const stepDescription = computed(() => {
     case 2:
       return "This category focuses on understanding the user’s dietary preferences, habits, and challenges.";
     case 3:
-      return "This section addresses the user’s weight loss challenges, motivations, and activity levels.";
+      return "This section addresses the user’s weight loss challenges, motivations, and activity levels. Select all that applies.";
     case 4:
       return "This category evaluates the user's willingness to participate in and commit to a weight loss program.";
     default:
@@ -872,10 +871,10 @@ const nextStep = () => {
       return;
     }
 
-    if (!formData.value.willingToPayForCoaching) {
+    if (!formData.value.medicalConditions) {
       showToast({
         title: "Error",
-        message: "Please indicate if you are willing to pay for coaching.",
+        message: "Please indicate medical conditions you are currently treated for.",
         toastType: "error",
         duration: 3000,
       });
@@ -962,53 +961,103 @@ const confirmPayment = () => {
     canProvideUpdates,
     canAffordWeighingScale,
     needsExerciseHelp,
-    willingToPayForCoaching,
+    medicalConditions,
+    // willingToPayForCoaching,
     participatedInCoachingBefore,
     referralSource,
     referralSourceDetails,
   } = formData.value;
 
+  // // Build the WhatsApp message text dynamically
+  // const message = `Hello,%20I%20have%20completed%20my%20payment.%20Please%20confirm.%20Here%20are%20my%20details:%0A%0A` +
+  //   `Name:%20${encodeURIComponent(name)}%0A` +
+  //   `WhatsApp%20Number:%20${encodeURIComponent(whatsappNumber)}%0A` +
+  //   `Gender:%20${encodeURIComponent(gender)}%0A` +
+  //   `Age:%20${encodeURIComponent(age)}%0A` +
+  //   `Email:%20${encodeURIComponent(email)}%0A` +
+  //   `Current%20Weight:%20${encodeURIComponent(currentWeight)}%20Kg%0A` +
+  //   `Current%20Height:%20${encodeURIComponent(currentHeight)}%20Cm%0A` +
+  //   `BMI:%20${encodeURIComponent(`(${bmiData.value}) ${bmiCategory.value}`)}%0A` +
+  //   `Target%20Weight:%20${encodeURIComponent(targetWeight)}%20Kg%0A%0A` +
+  //   `Tried%20Weight%20Loss%20Program:%20${encodeURIComponent(triedWeightLossProgram)}%0A` +
+  //   (triedWeightLossProgram === "Yes" && weightLossChallenges
+  //     ? `Weight%20Loss%20Challenges:%20${encodeURIComponent(weightLossChallenges)}%0A`
+  //     : "") +
+  //   `Likes%20Fruits:%20${encodeURIComponent(likesFruits)}%0A` +
+  //   (likesFruits === "Yes" && favoriteFruits.length > 0
+  //     ? `Favorite%20Fruits:%20${encodeURIComponent(favoriteFruits.join(", "))}%0A`
+  //     : likesFruits === "No"
+  //       ? `Reasons%20for%20Disliking%20Fruits:%20${encodeURIComponent(reasonsForDislikingFruits)}%0A`
+  //       : "") +
+  //   `Likes%20Vegetables:%20${encodeURIComponent(likesVegetables)}%0A` +
+  //   (likesVegetables === "Yes" && favoriteVegetables.length > 0
+  //     ? `Favorite%20Vegetables:%20${encodeURIComponent(favoriteVegetables.join(", "))}%0A`
+  //     : likesVegetables === "No"
+  //       ? `Reasons%20for%20Disliking%20Vegetables:%20${encodeURIComponent(reasonsForDislikingVegetables)}%0A`
+  //       : "") +
+  //   `Eats%20A%20Lot:%20${encodeURIComponent(eatsALot)}%0A%0A` +
+  //   `Weight%20Loss%20Challenges:%20${encodeURIComponent(weightLossChallengesList.join(", "))}%0A` +
+  //   `Health%20Challenges:%20${encodeURIComponent(healthChallenges)}%0A` +
+  //   `Weight%20Loss%20Motivations:%20${encodeURIComponent(weightLossMotivations.join(", "))}%0A` +
+  //   `Activity%20Level:%20${encodeURIComponent(activityLevel)}%0A%0A` +
+  //   `Can%20Provide%20Food%20Pictures:%20${encodeURIComponent(canProvideFoodPictures)}%0A` +
+  //   `Can%20Provide%20Updates:%20${encodeURIComponent(canProvideUpdates)}%0A` +
+  //   `Can%20Afford%20Weighing%20Scale:%20${encodeURIComponent(canAffordWeighingScale)}%0A` +
+  //   `Needs%20Exercise%20Help:%20${encodeURIComponent(needsExerciseHelp)}%0A` +
+  //   `Medical%20Conditions%20Treated%20for:%20${encodeURIComponent(medicalConditions)}%0A` +
+  //   `Participated%20in%20Coaching%20Before:%20${encodeURIComponent(participatedInCoachingBefore)}%0A` +
+  //   `Referral%20Source:%20${encodeURIComponent(referralSource)}%0A` +
+  //   (referralSource === "Others" ? `Referral%20Details:%20${encodeURIComponent(referralSourceDetails)}%0A` : "") +
+  //   `%0AThank%20you!`;
   // Build the WhatsApp message text dynamically
-  const message = `Hello,%20I%20have%20completed%20my%20payment.%20Please%20confirm.%20Here%20are%20my%20details:%0A%0A` +
-    `Name:%20${encodeURIComponent(name)}%0A` +
-    `WhatsApp%20Number:%20${encodeURIComponent(whatsappNumber)}%0A` +
-    `Gender:%20${encodeURIComponent(gender)}%0A` +
-    `Age:%20${encodeURIComponent(age)}%0A` +
-    `Email:%20${encodeURIComponent(email)}%0A` +
-    `Current%20Weight:%20${encodeURIComponent(currentWeight)}%20Kg%0A` +
-    `Current%20Height:%20${encodeURIComponent(currentHeight)}%20Cm%0A` +
-    `BMI:%20${encodeURIComponent(`(${bmiData.value}) ${bmiCategory.value}`)}%0A` +
-    `Target%20Weight:%20${encodeURIComponent(targetWeight)}%20Kg%0A%0A` +
-    `Tried%20Weight%20Loss%20Program:%20${encodeURIComponent(triedWeightLossProgram)}%0A` +
-    (triedWeightLossProgram === "Yes" && weightLossChallenges
-      ? `Weight%20Loss%20Challenges:%20${encodeURIComponent(weightLossChallenges)}%0A`
+const message = `Hello,%20I%20have%20completed%20my%20payment.%20Please%20confirm.%20Here%20are%20my%20details:%0A%0A` +
+  `Name:%20${encodeURIComponent(name)}%0A` +
+  `WhatsApp%20Number:%20${encodeURIComponent(whatsappNumber)}%0A` +
+  `Gender:%20${encodeURIComponent(gender)}%0A` +
+  `Age:%20${encodeURIComponent(age)}%0A` +
+  `Email:%20${encodeURIComponent(email)}%0A` +
+  `Current%20Weight:%20${encodeURIComponent(currentWeight)}%20Kg%0A` +
+  `Current%20Height:%20${encodeURIComponent(currentHeight)}%20Cm%0A` +
+  `BMI:%20${encodeURIComponent(`(${bmiData.value}) ${bmiCategory.value}`)}%0A` +
+  `Target%20Weight:%20${encodeURIComponent(targetWeight)}%0A%0A` +
+  `Tried%20Weight%20Loss%20Program:%20${encodeURIComponent(triedWeightLossProgram)}%0A` +
+  (triedWeightLossProgram === "Yes" && weightLossChallenges
+    ? `Weight%20Loss%20Challenges:%20${encodeURIComponent(weightLossChallenges)}%0A`
+    : "") +
+  `Likes%20Fruits:%20${encodeURIComponent(likesFruits)}%0A` +
+  (likesFruits === "Yes" && favoriteFruits && favoriteFruits.length > 0
+    ? `Favorite%20Fruits:%20${encodeURIComponent(
+        typeof favoriteFruits === "string"
+          ? favoriteFruits.split(",").map(item => item.trim()).join(", ")
+          : favoriteFruits.join(", ")
+      )}%0A`
+    : likesFruits === "No"
+      ? `Reasons%20for%20Disliking%20Fruits:%20${encodeURIComponent(reasonsForDislikingFruits)}%0A`
       : "") +
-    `Likes%20Fruits:%20${encodeURIComponent(likesFruits)}%0A` +
-    (likesFruits === "Yes" && favoriteFruits.length > 0
-      ? `Favorite%20Fruits:%20${encodeURIComponent(favoriteFruits.join(", "))}%0A`
-      : likesFruits === "No"
-        ? `Reasons%20for%20Disliking%20Fruits:%20${encodeURIComponent(reasonsForDislikingFruits)}%0A`
-        : "") +
-    `Likes%20Vegetables:%20${encodeURIComponent(likesVegetables)}%0A` +
-    (likesVegetables === "Yes" && favoriteVegetables.length > 0
-      ? `Favorite%20Vegetables:%20${encodeURIComponent(favoriteVegetables.join(", "))}%0A`
-      : likesVegetables === "No"
-        ? `Reasons%20for%20Disliking%20Vegetables:%20${encodeURIComponent(reasonsForDislikingVegetables)}%0A`
-        : "") +
-    `Eats%20A%20Lot:%20${encodeURIComponent(eatsALot)}%0A%0A` +
-    `Weight%20Loss%20Challenges:%20${encodeURIComponent(weightLossChallengesList.join(", "))}%0A` +
-    `Health%20Challenges:%20${encodeURIComponent(healthChallenges)}%0A` +
-    `Weight%20Loss%20Motivations:%20${encodeURIComponent(weightLossMotivations.join(", "))}%0A` +
-    `Activity%20Level:%20${encodeURIComponent(activityLevel)}%0A%0A` +
-    `Can%20Provide%20Food%20Pictures:%20${encodeURIComponent(canProvideFoodPictures)}%0A` +
-    `Can%20Provide%20Updates:%20${encodeURIComponent(canProvideUpdates)}%0A` +
-    `Can%20Afford%20Weighing%20Scale:%20${encodeURIComponent(canAffordWeighingScale)}%0A` +
-    `Needs%20Exercise%20Help:%20${encodeURIComponent(needsExerciseHelp)}%0A` +
-    `Willing%20to%20Pay%20for%20Coaching:%20${encodeURIComponent(willingToPayForCoaching)}%0A` +
-    `Participated%20in%20Coaching%20Before:%20${encodeURIComponent(participatedInCoachingBefore)}%0A` +
-    `Referral%20Source:%20${encodeURIComponent(referralSource)}%0A` +
-    (referralSource === "Others" ? `Referral%20Details:%20${encodeURIComponent(referralSourceDetails)}%0A` : "") +
-    `%0AThank%20you!`;
+  `Likes%20Vegetables:%20${encodeURIComponent(likesVegetables)}%0A` +
+  (likesVegetables === "Yes" && favoriteVegetables && favoriteVegetables.length > 0
+    ? `Favorite%20Vegetables:%20${encodeURIComponent(
+        typeof favoriteVegetables === "string"
+          ? favoriteVegetables.split(",").map(item => item.trim()).join(", ")
+          : favoriteVegetables.join(", ")
+      )}%0A`
+    : likesVegetables === "No"
+      ? `Reasons%20for%20Disliking%20Vegetables:%20${encodeURIComponent(reasonsForDislikingVegetables)}%0A`
+      : "") +
+  `Eats%20A%20Lot:%20${encodeURIComponent(eatsALot)}%0A%0A` +
+  `Weight%20Loss%20Challenges:%20${encodeURIComponent(weightLossChallengesList.join(", "))}%0A` +
+  `Health%20Challenges:%20${encodeURIComponent(healthChallenges)}%0A` +
+  `Weight%20Loss%20Motivations:%20${encodeURIComponent(weightLossMotivations.join(", "))}%0A` +
+  `Activity%20Level:%20${encodeURIComponent(activityLevel)}%0A%0A` +
+  `Can%20Provide%20Food%20Pictures:%20${encodeURIComponent(canProvideFoodPictures)}%0A` +
+  `Can%20Provide%20Updates:%20${encodeURIComponent(canProvideUpdates)}%0A` +
+  `Can%20Afford%20Weighing%20Scale:%20${encodeURIComponent(canAffordWeighingScale)}%0A` +
+  `Needs%20Exercise%20Help:%20${encodeURIComponent(needsExerciseHelp)}%0A` +
+  `Medical%20Conditions%20Treated%20for:%20${encodeURIComponent(medicalConditions)}%0A` +
+  `Participated%20in%20Coaching%20Before:%20${encodeURIComponent(participatedInCoachingBefore)}%0A` +
+  `Referral%20Source:%20${encodeURIComponent(referralSource)}%0A` +
+  (referralSource === "Others" ? `Referral%20Details:%20${encodeURIComponent(referralSourceDetails)}%0A` : "") +
+  `%0AThank%20you!`;
 
   // Open WhatsApp with the generated message
   window.open(`https://wa.me/2347030338088?text=${message}`, "_blank");

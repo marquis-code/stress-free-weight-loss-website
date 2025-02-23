@@ -36,8 +36,9 @@
                         </ul>
 
                         <footer class="mb-10 flex justify-center">
-                            <NuxtLink
-                                to="/questionaire"
+                            <!-- @click="handleGetStarted('premium') -->
+                            <button
+                                @click="handleGetStarted('basic')"
                                 class="group relative mt-16 inline-block focus:outline-none focus:ring mt-10"
                             >
                                 <span
@@ -47,7 +48,7 @@
                                 <span
                                     class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest"
                                 >Get started</span>
-                            </NuxtLink>
+                            </button>
                         </footer>
                     </div>
                 </main>
@@ -80,7 +81,7 @@
                         </ul>
 
                         <footer class="flex justify-center">
-                            <NuxtLink
+                            <button @click="handleGetStarted('premium')"
                                 to="/questionaire"
                                 class="group relative -mt-2 inline-block focus:outline-none focus:ring mt-10"
                             >
@@ -91,7 +92,7 @@
                                 <span
                                     class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest"
                                 >Get started</span>
-                            </NuxtLink>
+                            </button>
                         </footer>
                     </div>
                 </main>
@@ -102,4 +103,8 @@
 
 <script setup lang="ts">
 const router = useRouter()
+
+const handleGetStarted = (coachingPlan: string) => {
+    router.push({ path: '/questionaire', query: { plan: coachingPlan }})
+}
 </script>
