@@ -22,14 +22,12 @@
                 </a> and we'll get back to you as soon as we can.
               </p>
               
-              <!-- Illustration -->
               <div 
                 class="hidden lg:block mt-12"
                 v-motion
                 :initial="{ opacity: 0, scale: 0.8 }"
                 :enter="{ opacity: 1, scale: 1, transition: { delay: 600, duration: 800 } }"
               >
-                <!-- <img src="/faq-illustration.svg" alt="FAQ Illustration" class="w-full max-w-xs mx-auto" /> -->
               </div>
             </div>
             
