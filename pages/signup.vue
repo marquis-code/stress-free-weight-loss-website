@@ -13,9 +13,9 @@
             </h2>
             <p class="mt-2 text-sm/6 text-gray-500">
               Already a member?
-              <NuyxtLink to="/login" class="font-semibold text-indigo-600 hover:text-indigo-500">
+              <NuxtLink to="/login" class="font-semibold text-indigo-600 hover:text-indigo-500">
                Login
-              </NuyxtLink>
+              </NuxtLink>
             </p>
           </div>
   
@@ -169,7 +169,7 @@
                 </div>
               </div>
   
-              <div class="flex items-center justify-between">
+              <!-- <div class="flex items-center justify-between">
                 <div class="flex gap-3">
                   <div class="flex h-6 shrink-0 items-center">
                     <div class="group grid size-4 grid-cols-1">
@@ -211,7 +211,7 @@
                     Forgot password?
                   </a>
                 </div>
-              </div>
+              </div> -->
   
               <div>
                 <button 

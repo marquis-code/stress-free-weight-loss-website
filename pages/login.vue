@@ -123,7 +123,7 @@
               </div>
             </div>
 
-            <div class="flex items-center justify-between">
+            <!-- <div class="flex items-center justify-between">
               <div class="flex gap-3">
                 <div class="flex h-6 shrink-0 items-center">
                   <div class="group grid size-4 grid-cols-1">
@@ -165,7 +165,7 @@
                   Forgot password?
                 </a>
               </div>
-            </div>
+            </div> -->
 
             <div>
               <button 

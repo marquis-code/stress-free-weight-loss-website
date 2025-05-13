@@ -3,7 +3,7 @@
     <div class="relative group w-full h-96 overflow-hidden bg-black m-auto rounded-xl">
   <img class="object-cover w-full h-full transform duration-700 backdrop-opacity-100" src="@/assets/personalized-diet1.jpg" />
   <div class="absolute w-full h-full shadow-2xl opacity-20 transform duration-500 inset-y-full group-hover:-inset-y-0"></div>
-  <div class="absolute bg-gradient-to-t from-black w-full h-full transform duration-500 inset-y-3/4 group-hover:-inset-y-0">
+  <div class="absolute bg-gradient-to-t from-black w-full h-full transform duration-500 bg-black/70 inset-y-3/4 group-hover:-inset-y-0">
     <div class="absolute w-full flex place-content-center">
       <p class="capitalize font-serif font-bold text-2xl text-center shadow-2xl text-white mt-10">Personalized Meal Plans</p>
     </div>
@@ -20,8 +20,8 @@
 
 <div class="relative group w-full h-96 overflow-hidden bg-black m-auto rounded-xl">
   <img class="object-cover w-full h-full transform duration-700 backdrop-opacity-100" src="@/assets/weight4.jpg" />
-  <div class="absolute w-full h-full shadow-2xl opacity-20 transform duration-500 inset-y-full group-hover:-inset-y-0"></div>
-  <div class="absolute bg-gradient-to-t from-black w-full h-full transform duration-500 inset-y-3/4 group-hover:-inset-y-0">
+  <div class="absolute w-full h-full shadow-2xl opacity-20 transform duration-500  inset-y-full group-hover:-inset-y-0"></div>
+  <div class="absolute bg-gradient-to-t from-black w-full h-full transform duration-500 bg-black/70 inset-y-3/4 group-hover:-inset-y-0">
     <div class="absolute w-full flex place-content-center">
       <p class="capitalize font-serif font-bold text-2xl text-center shadow-2xl text-white mt-10">24/7 Support and Guidance</p>
     </div>
@@ -40,7 +40,7 @@
 <div class="relative group w-full h-96 overflow-hidden bg-black m-auto rounded-xl">
   <img class="object-cover w-full h-full transform duration-700 backdrop-opacity-100" src="@/assets/weight7.jpg" />
   <div class="absolute w-full h-full shadow-2xl opacity-20 transform duration-500 inset-y-full group-hover:-inset-y-0"></div>
-  <div class="absolute bg-gradient-to-t from-black w-full h-full transform duration-500 inset-y-3/4 group-hover:-inset-y-0">
+  <div class="absolute bg-gradient-to-t from-black w-full h-full transform duration-500 bg-black/70 inset-y-3/4 group-hover:-inset-y-0">
     <div class="absolute w-full flex place-content-center">
       <p class="capitalize font-serif font-bold text-2xl text-center shadow-2xl text-white mt-10">Fitness Workouts That Fit Your Schedule</p>
     </div>
@@ -57,7 +57,7 @@
 <div class="relative group w-full h-96 overflow-hidden bg-black m-auto rounded-xl">
   <img class="object-cover w-full h-full transform duration-700 backdrop-opacity-100" src="@/assets/weight8.jpg" />
   <div class="absolute w-full h-full shadow-2xl opacity-20 transform duration-500 inset-y-full group-hover:-inset-y-0"></div>
-  <div class="absolute bg-gradient-to-t from-black w-full h-full transform duration-500 inset-y-3/4 group-hover:-inset-y-0">
+  <div class="absolute bg-gradient-to-t from-black w-full h-full transform duration-500 bg-black/70 inset-y-3/4 group-hover:-inset-y-0">
     <div class="absolute w-full flex place-content-center">
       <p class="capitalize font-serif font-bold text-2xl text-center shadow-2xl text-white mt-10">Progress Tracking Made Easy</p>
     </div>
